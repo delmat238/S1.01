@@ -2,6 +2,13 @@ from programme.joueur.joueur import Joueur
 
 if __name__ == '__main__':
     choix: str = ""
+    joueur1: Joueur
+    joueur2: Joueur
+
+    pseudo = input("Entrez le pseudo du joueur 1 : ")
+    joueur1 = Joueur(pseudo)
+    pseudo = input("Entrez le pseudo du joueur 2 : ")
+    joueur2 = Joueur(pseudo)
 
     while choix != "4":
         print("""
