@@ -1,4 +1,4 @@
-from unittest import case
+from programme.joueur.joueur import Joueur
 
 if __name__ == '__main__':
     choix: str = ""
@@ -11,9 +11,7 @@ if __name__ == '__main__':
     4. Quitter   
         """)
 
-
         choix = input("Faites votre choix : ")
 
         match choix:
             case "4": print("Au revoir")
-
