@@ -1,4 +1,6 @@
 from programme.joueur.joueur import Joueur
+from programme.utile.mrPropre import mrPropre
+from programme.devinette.jeuDevinette import jeuDevinette
 
 if __name__ == '__main__':
     choix: str = ""
@@ -21,4 +23,5 @@ if __name__ == '__main__':
         choix = input("Faites votre choix : ")
 
         match choix:
-            case "4": print("Au revoir")
+            case '1': jeuDevinette(joueur1, joueur2)
+            case '4': print("Au revoir")
