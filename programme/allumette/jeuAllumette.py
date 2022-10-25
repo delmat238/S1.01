@@ -17,5 +17,5 @@ def jeuAllumette(joueur1: Joueur, joueur2: Joueur):
             break
         except ValueError:
             print("Merci de choisir un nombre valide")
+
     
-    #WIP
