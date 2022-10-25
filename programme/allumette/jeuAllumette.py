@@ -18,10 +18,10 @@ def jeuAllumette(joueur1: Joueur, joueur2: Joueur):
     while True:
         try:
             nallum = int(input("Sélectionnez le nombre d'allumettes : "))
-            if nallum >= 5 and nallum <= amax:
+            if nallum >= 6 and nallum <= amax:
                 break
             else:
-                print("Merci de choisir un nombre valide")
+                print("Merci de choisir un nombre valide (min:6 / max:"+str(amax)+")")
         except ValueError:
             print("Erreur de saisie")
 
@@ -30,19 +30,33 @@ def jeuAllumette(joueur1: Joueur, joueur2: Joueur):
 
     while nrest > 0:
         while True:
-            nret = saisieInt(cp.pseudo + ", retirez entre 1 et 3 allumettes : ", "Erreur de saisie")
+            nret = saisieInt(
+                cp.pseudo + ", retirez entre 1 et 3 allumettes : ", "Erreur de saisie")
             if nret > 0 and nret < 4:
                 break
             else:
                 print("Nombre invalide, il doit être compris entre 1 et 3 inclus")
         nrest = nrest - nret
+        mrPropre()
         print(affichageAllumette(nallum, nrest))
+        if cp == joueur1:
+            cp = joueur2
+        else:
+            cp = joueur1
 
-    print(cp.pseudo + " perd la partie !")
+    print(cp.pseudo + " gagne la partie !\n")
 
 
 def affichageAllumette(nallum: int, nrest: int) -> str:
-    """Use autoDocstring extension to complete"""
+    """Génère l'affichage des allumettes
+
+    Args:
+        nallum (int): Nombre d'alumettes en début de partie
+        nrest (int): Nombre d'alumettes restantes
+
+    Returns:
+        str: Chaîne correspondant à l'affichage des allumettes actuellement en jeu
+    """
 
     show: str = ""
 
