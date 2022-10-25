@@ -1,3 +1,4 @@
+from programme.allumette.jeuAllumette import jeuAllumette
 from programme.joueur.joueur import Joueur
 from programme.utile.mrPropre import mrPropre
 from programme.devinette.jeuDevinette import jeuDevinette
@@ -24,4 +25,5 @@ if __name__ == '__main__':
 
         match choix:
             case '1': jeuDevinette(joueur1, joueur2)
+            case '2': jeuAllumette(joueur1,joueur2)
             case '4': print("Au revoir")
