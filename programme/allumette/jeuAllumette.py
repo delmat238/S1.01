@@ -51,8 +51,8 @@ def affichageAllumette(nallum: int, nrest: int) -> str:
     """Génère l'affichage des allumettes
 
     Args:
-        nallum (int): Nombre d'alumettes en début de partie
-        nrest (int): Nombre d'alumettes restantes
+        nallum (int): Nombre d'allumettes en début de partie
+        nrest (int): Nombre d'allumettes restantes
 
     Returns:
         str: Chaîne correspondant à l'affichage des allumettes actuellement en jeu
