@@ -44,3 +44,16 @@ def incrementScore(joueur: Joueur, nomjeu: str):
                 }
                 data['players'][joueur.pseudo][nomjeu] = 1
             json.dump(data, w_score_file, indent=4)
+
+def resetScore(joueur:Joueur):
+    """"""
+    with open("programme/joueur/scores.json", "r") as r_score_file:
+        data = json.load(r_score_file)
+        with open("programme/joueur/scores.json", "w") as w_score_file:
+            data['players'][joueur.pseudo] = {
+                    "allumette": 0,
+                    "devinette": 0,
+                    "morpion": 0,
+                    "puissance 4": 0
+                }
+            json.dump(data, w_score_file, indent=4)

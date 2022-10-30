@@ -1,28 +1,5 @@
 {
     "players": {
-        "a": {
-            "allumette": 0,
-            "devinette": 0,
-            "morpion": 0,
-            "puissance 4": 0
-        },
-        "z": {
-            "allumette": 0,
-            "devinette": 0,
-            "morpion": 0,
-            "puissance 4": 0
-        },
-        "watz": {
-            "allumette": 0,
-            "devinette": 0,
-            "morpion": 0,
-            "puissance 4": 0
-        },
-        "delmat": {
-            "allumette": 0,
-            "devinette": 0,
-            "morpion": 0,
-            "puissance 4": 0
-        }
+        
     }
 }
