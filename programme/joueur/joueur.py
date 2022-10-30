@@ -25,6 +25,15 @@ class Joueur:
             self.scoreMorpion = data['players'][pseudo]["morpion"]
             self.scoreP4 = data['players'][pseudo]["puissance 4"]
 
+    def reloadScore(self):
+        pseudo = self.pseudo
+        with open("programme/joueur/scores.json", "r") as r_score_file:
+            data = json.load(r_score_file)
+            self.scoreDevinette = data['players'][pseudo]["devinette"]
+            self.scoreAllumette = data['players'][pseudo]["allumette"]
+            self.scoreMorpion = data['players'][pseudo]["morpion"]
+            self.scoreP4 = data['players'][pseudo]["puissance 4"]
+
     def afficherScore(self):
         self.afficherScoreDevinette()
         self.afficherScoreAllumette()

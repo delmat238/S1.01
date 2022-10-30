@@ -25,6 +25,7 @@ def setScore(score: int, joueur: Joueur, nomjeu: str):
                 }
                 data['players'][joueur.pseudo][nomjeu] = score
             json.dump(data, w_score_file, indent=4)
+    joueur.reloadScore()
 
 
 def incrementScore(joueur: Joueur, nomjeu: str):
@@ -49,6 +50,7 @@ def incrementScore(joueur: Joueur, nomjeu: str):
                 }
                 data['players'][joueur.pseudo][nomjeu] = 1
             json.dump(data, w_score_file, indent=4)
+    joueur.reloadScore()
 
 def resetScore(joueur:Joueur):
     """Permet de remettre à 0 tous les cores d'un joueur
@@ -66,3 +68,4 @@ def resetScore(joueur:Joueur):
                     "puissance 4": 0
                 }
             json.dump(data, w_score_file, indent=4)
+    joueur.reloadScore()
