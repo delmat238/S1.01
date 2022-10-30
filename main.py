@@ -2,6 +2,7 @@ from programme.allumette.jeuAllumette import jeuAllumette
 from programme.joueur.joueur import Joueur
 from programme.utile.mrPropre import mrPropre
 from programme.devinette.jeuDevinette import jeuDevinette
+from programme.utile.score import setScore
 
 if __name__ == '__main__':
     choix: str = ""
