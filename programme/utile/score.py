@@ -28,7 +28,12 @@ def setScore(score: int, joueur: Joueur, nomjeu: str):
 
 
 def incrementScore(joueur: Joueur, nomjeu: str):
-    """Use autoDocstring extension to complete"""
+    """Permet d'incrémenter de 1 le score d'un joueur pour un jeu
+
+    Args:
+        joueur (Joueur): joueur dont le score est augmenté
+        nomjeu (str): nom du jeu pour lequel le score est augmenté
+    """
     with open("programme/joueur/scores.json", "r") as r_score_file:
         data = json.load(r_score_file)
         with open("programme/joueur/scores.json", "w") as w_score_file:
@@ -46,7 +51,11 @@ def incrementScore(joueur: Joueur, nomjeu: str):
             json.dump(data, w_score_file, indent=4)
 
 def resetScore(joueur:Joueur):
-    """"""
+    """Permet de remettre à 0 tous les cores d'un joueur
+
+    Args:
+        joueur (Joueur): Joueur dont les scores sont remis à 0
+    """
     with open("programme/joueur/scores.json", "r") as r_score_file:
         data = json.load(r_score_file)
         with open("programme/joueur/scores.json", "w") as w_score_file:
