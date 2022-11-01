@@ -1,5 +1,16 @@
 {
     "players": {
-        
+        "delmat": {
+            "allumette": 0,
+            "devinette": 0,
+            "morpion": 0,
+            "puissance 4": 0
+        },
+        "kleas": {
+            "allumette": 0,
+            "devinette": 0,
+            "morpion": 0,
+            "puissance 4": 0
+        }
     }
 }
