@@ -1,5 +1,7 @@
 from hashlib import sha256
 import os
+import json
+from programme.utile.colorfull import *
 
 
 def decrytion(filepath: str) -> str:
@@ -11,7 +13,7 @@ def decrytion(filepath: str) -> str:
     Returns:
         str: Chaine (format json) contenant les données de score
     """
-
+    error: bool = False
     jsondata: str = ""
     i: int
     unicode: int
@@ -26,8 +28,14 @@ def decrytion(filepath: str) -> str:
             while rfile.peek():
                 unicode = ord(rfile.read(1))
                 b = bytes([unicode ^ key[(i % len(key))]])
-                jsondata = jsondata + b.decode('utf-8')
+                try:
+                    jsondata = jsondata + b.decode('utf-8')
+                except UnicodeDecodeError:
+                    error = True
                 i = i+1
+
+    if error:
+        print(textform.ERROR+"Le fichier de sauvegarde est peut être endommagé. Pour résoudre ce problème, utilisez le Mode Réparation."+textform.DEFAULT)
 
     return jsondata
 
@@ -56,5 +64,10 @@ def encryption(filepath: str):
                 i = i+1
     os.remove(filepath)
 
-# if __name__ == "__main__":
-#     print(decrytion("programme/joueur/scores"))
+
+def repair():
+    data = json.loads("{\"players\":{}}")
+    with open("programme/joueur/scores.json", "w") as w_score_file:
+        json.dump(data, w_score_file, indent=4)
+    encryption("programme/joueur/scores.json")
+    print("\n"+textcolor.GREEN+"Réparation Terminée"+textcolor.DEFAULT+"\n")
