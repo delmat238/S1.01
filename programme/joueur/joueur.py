@@ -1,5 +1,5 @@
 import json
-
+from programme.utile.chiffrement import *
 
 class Joueur:
     pseudo: str
@@ -9,21 +9,21 @@ class Joueur:
 
     def __init__(self, pseudo: str):
         self.pseudo = pseudo
-        with open("programme/joueur/scores.json", "r") as r_score_file:
-            data = json.load(r_score_file) 
-            with open("programme/joueur/scores.json", "w") as w_score_file:
-                if not pseudo in data['players']:
-                    data['players'][pseudo] = {
-                        "allumette": 0,
-                        "devinette": 0,
-                        "morpion": 0,
-                        "puissance 4": 0
-                    }
-                json.dump(data, w_score_file, indent=4)
-            self.scoreDevinette = data['players'][pseudo]["devinette"]
-            self.scoreAllumette = data['players'][pseudo]["allumette"]
-            self.scoreMorpion = data['players'][pseudo]["morpion"]
-            self.scoreP4 = data['players'][pseudo]["puissance 4"]
+        data = json.loads(decrytion("programme/joueur/scores")) 
+        with open("programme/joueur/scores.json", "w") as w_score_file:
+            if not pseudo in data['players']:
+                data['players'][pseudo] = {
+                    "allumette": 0,
+                    "devinette": 0,
+                    "morpion": 0,
+                    "puissance 4": 0
+                }
+            json.dump(data, w_score_file, indent=4)
+        self.scoreDevinette = data['players'][pseudo]["devinette"]
+        self.scoreAllumette = data['players'][pseudo]["allumette"]
+        self.scoreMorpion = data['players'][pseudo]["morpion"]
+        self.scoreP4 = data['players'][pseudo]["puissance 4"]
+        self.reloadScore()
 
     def reloadScore(self):
         pseudo = self.pseudo
@@ -33,6 +33,7 @@ class Joueur:
             self.scoreAllumette = data['players'][pseudo]["allumette"]
             self.scoreMorpion = data['players'][pseudo]["morpion"]
             self.scoreP4 = data['players'][pseudo]["puissance 4"]
+        encryption("programme/joueur/scores.json")
 
     def afficherScore(self):
         self.afficherScoreDevinette()
