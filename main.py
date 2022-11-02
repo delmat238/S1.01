@@ -1,7 +1,9 @@
 from programme.allumette.jeuAllumette import jeuAllumette
 from programme.joueur.joueur import Joueur
+from programme.morpion.jeuMopion import jeuMopion
 from programme.utile.mrPropre import mrPropre
 from programme.devinette.jeuDevinette import jeuDevinette
+from programme.utile.score import setScore
 
 if __name__ == '__main__':
     choix: str = ""
@@ -26,4 +28,5 @@ if __name__ == '__main__':
         match choix:
             case '1': jeuDevinette(joueur1, joueur2)
             case '2': jeuAllumette(joueur1, joueur2)
+            case '3': jeuMopion(joueur1, joueur2)
             case '4': print("Au revoir")
