@@ -1,6 +1,7 @@
 import json
 from programme.utile.chiffrement import *
 
+
 class Joueur:
     pseudo: str
     scoreDevinette: int
@@ -9,7 +10,7 @@ class Joueur:
 
     def __init__(self, pseudo: str):
         self.pseudo = pseudo
-        data = json.loads(decrytion("programme/joueur/scores")) 
+        data = json.loads(decrytion("programme/joueur/scores"))
         with open("programme/joueur/scores.json", "w") as w_score_file:
             if not pseudo in data['players']:
                 data['players'][pseudo] = {
@@ -26,6 +27,9 @@ class Joueur:
         self.reloadScore()
 
     def reloadScore(self):
+        """Recharge le score du joueur dans le fichier chiffré
+        """
+
         pseudo = self.pseudo
         with open("programme/joueur/scores.json", "r") as r_score_file:
             data = json.load(r_score_file)
@@ -48,6 +52,3 @@ class Joueur:
 
     def afficherScoreMorpion(self):
         print("Score Morpion : ", self.scoreMorpion)
-
-
-

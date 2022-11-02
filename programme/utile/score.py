@@ -11,7 +11,7 @@ def setScore(score: int, joueur: Joueur, nomjeu: str):
         score (int): nouveau score du joueur
         joueur (Joueur): Joueur concerné
     """
-    
+
     data = json.loads(decrytion("programme/joueur/scores"))
     with open("programme/joueur/scores.json", "w") as w_score_file:
         if joueur.pseudo in data['players']:
@@ -51,7 +51,8 @@ def incrementScore(joueur: Joueur, nomjeu: str):
         json.dump(data, w_score_file, indent=4)
     joueur.reloadScore()
 
-def resetScore(joueur:Joueur):
+
+def resetScore(joueur: Joueur):
     """Permet de remettre à 0 tous les cores d'un joueur
 
     Args:
@@ -60,10 +61,10 @@ def resetScore(joueur:Joueur):
     data = json.loads(decrytion("programme/joueur/scores"))
     with open("programme/joueur/scores.json", "w") as w_score_file:
         data['players'][joueur.pseudo] = {
-                "allumette": 0,
-                "devinette": 0,
-                "morpion": 0,
-                "puissance 4": 0
-            }
+            "allumette": 0,
+            "devinette": 0,
+            "morpion": 0,
+            "puissance 4": 0
+        }
         json.dump(data, w_score_file, indent=4)
     joueur.reloadScore()
