@@ -1,33 +1,23 @@
 from programme.joueur.joueur import Joueur
 from programme.morpion.fonctionMorpion import *
+from programme.morpion.tourMorpion import tourMorpion
 from programme.utile.saisieNombre import saisieInt
 
 
-def jeuMopion(joueur1: Joueur, joueur2: Joueur) -> None:
-    plateau: list[list[str]] = [["-", "-", "-"], ["-", "-", "-"], ["-", "-", "-"]]
-    x: int
-    y: int
+def jeuMopion(joueur1: Joueur, joueur2: Joueur):
+    pseudo: str = ""
 
-    while not pionAligne(plateau):
-        affichePlateau(plateau)
-        while True:
-            x = saisieX(joueur1)
-            y = saisieY(joueur1)
-            if plateau[x][y] == "-":
-                break
-            else:
-                print("Case déjà prise")
-        plateau[x][y] = "X"
-        if pionAligne(plateau):
-            break
-        affichePlateau(plateau)
-        while True:
-            x = saisieX(joueur2)
-            y = saisieY(joueur2)
-            if plateau[x][y] == "-":
-                break
-            else:
-                print("Case déjà prise")
-        plateau[x][y] = "O"
+    while pseudo != joueur1.pseudo and pseudo != joueur2.pseudo:
+        pseudo = input("Entrez le pseudo du joueur qui commence : ")
 
-    affichePlateau(plateau)
+        if pseudo != joueur1.pseudo and pseudo != joueur2.pseudo:
+            print("Pseudo inconnu")
+
+    if pseudo == joueur1.pseudo:
+        joueur1, joueur2 = tourMorpion(joueur1, joueur2)
+    else:
+        joueur2, joueur1 = tourMorpion(joueur2, joueur1)
+
+
+
+
