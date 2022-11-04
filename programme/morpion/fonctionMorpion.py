@@ -1,3 +1,5 @@
+from typing import Tuple
+
 from programme.joueur.joueur import Joueur
 from programme.utile.saisieNombre import saisieInt
 
@@ -33,25 +35,35 @@ def saisieY(joueur: Joueur) -> int:
     return y
 
 
-def pionAligne(plateau: list[list[str]]) -> bool:
+def pionAligne(plateau: list[list[str]]) -> tuple[str, str] | bool:
     """ Vérifie si un pion est aligné
     """
     if plateau[0][0] == plateau[0][1] and plateau[0][0] == plateau[0][2] and plateau[0][0] != "-":
-        return True
+        return "True", plateau[0][0]
     if plateau[1][0] == plateau[1][1] and plateau[1][0] == plateau[1][2] and plateau[1][0] != "-":
-        return True
+        return "True", plateau[1][0]
     if plateau[2][0] == plateau[2][1] and plateau[2][0] == plateau[2][2] and plateau[2][0] != "-":
-        return True
+        return "True", plateau[2][0]
     if plateau[0][0] == plateau[1][0] and plateau[0][0] == plateau[2][0] and plateau[0][0] != "-":
-        return True
+        return "True", plateau[0][0]
     if plateau[0][1] == plateau[1][1] and plateau[0][1] == plateau[2][1] and plateau[0][1] != "-":
-        return True
+        return "True", plateau[0][1]
     if plateau[0][2] == plateau[1][2] and plateau[0][2] == plateau[2][2] and plateau[0][2] != "-":
-        return True
+        return "True", plateau[0][2]
     if plateau[0][0] == plateau[1][1] and plateau[0][0] == plateau[2][2] and plateau[0][0] != "-":
-        return True
+        return "True", plateau[0][0]
     if plateau[0][2] == plateau[1][1] and plateau[0][2] == plateau[2][0] and plateau[0][2] != "-":
-        return True
-    return False
+        return "True", plateau[0][2]
+    return "False", ""
+
+
+def plateauPlein(plateau: list[list[str]]) -> bool:
+    """ Vérifie si le plateau est plein
+    """
+    for i in range(3):
+        for j in range(3):
+            if plateau[i][j] == "-":
+                return False
+    return True
 
 
