@@ -68,3 +68,11 @@ def resetScore(joueur: Joueur):
         }
         json.dump(data, w_score_file, indent=4)
     joueur.reloadScore()
+
+def menuScore(joueur1: Joueur, joueur2: Joueur):
+    """Gère le menu des scores
+
+    Args:
+        joueur1 (Joueur): premier joueur renseigné sur le menu principal
+        joueur2 (Joueur): second joueur renseigné sur le menu principal
+    """
