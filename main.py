@@ -14,7 +14,7 @@ if __name__ == '__main__':
     pseudo = input("Entrez le pseudo du joueur 2 : ")
     joueur2 = Joueur(pseudo)
 
-    while choix != "4":
+    while choix != "5":
         print("""
     1. Devinette
     2. Allumette
