@@ -2,6 +2,8 @@ import json
 
 from programme.joueur.joueur import Joueur
 from programme.utile.chiffrement import *
+from programme.utile.mrPropre import mrPropre
+from programme.utile.colorfull import *
 
 
 def setScore(score: int, joueur: Joueur, nomjeu: str):
@@ -68,3 +70,37 @@ def resetScore(joueur: Joueur):
         }
         json.dump(data, w_score_file, indent=4)
     joueur.reloadScore()
+
+
+def getClassement():
+    """Affiche le classement des meilleurs joueurs
+    """
+
+    print("*classement*")
+
+
+def menuScore(joueur1: Joueur, joueur2: Joueur):
+    """Gère le menu des scores
+
+    Args:
+        joueur1 (Joueur): premier joueur renseigné sur le menu principal
+        joueur2 (Joueur): second joueur renseigné sur le menu principal
+    """
+
+    choix: str = ""
+    mrPropre()
+
+    print(textcolor.CYAN+"\nBienvenue dans les scores !"+textcolor.DEFAULT)
+    while choix != "3":
+        print("""
+    1. Score des Joueurs
+    2. Classements
+    3. Quitter
+        """)
+
+        choix = input("Faites votre choix : ")
+
+        match choix:
+            case '1': print("to do")
+            case '2': getClassement()
+            case '3': print("Au revoir")
