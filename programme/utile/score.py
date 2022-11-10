@@ -103,4 +103,4 @@ def menuScore(joueur1: Joueur, joueur2: Joueur):
         match choix:
             case '1': print("to do")
             case '2': getClassement()
-            case '3': print("Au revoir")
+            case '3': mrPropre(),print("\n"+textcolor.BLUE+"Menu principal"+textcolor.DEFAULT)
