@@ -2,6 +2,7 @@ from programme.devinette.tourDeJeu import tourDeJeu
 from programme.joueur.joueur import Joueur
 from programme.utile.mrPropre import mrPropre
 from programme.utile.saisieNombre import saisieInt
+from programme.utile.score import incrementScore
 
 
 def jeuDevinette(joueur1: Joueur, joueur2: Joueur):
@@ -30,10 +31,10 @@ def jeuDevinette(joueur1: Joueur, joueur2: Joueur):
 
     if comptJ1 < comptJ2:
         print(joueur1.pseudo, "vous avez gagné !")
-        joueur1.scoreDevinette += 1
+        incrementScore(joueur1,"devinette")
     elif comptJ1 > comptJ2:
         print(joueur2.pseudo, "vous avez gagné !")
-        joueur2.scoreDevinette += 1
+        incrementScore(joueur2,"devinette")
     else:
         print("Match nul")
 
