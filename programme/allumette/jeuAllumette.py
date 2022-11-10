@@ -1,6 +1,8 @@
 from programme.joueur.joueur import Joueur
 from programme.utile.mrPropre import mrPropre
 from programme.utile.saisieNombre import *
+from programme.utile.score import incrementScore
+from programme.utile.colorfull import *
 
 
 def jeuAllumette(joueur1: Joueur, joueur2: Joueur):
@@ -13,7 +15,7 @@ def jeuAllumette(joueur1: Joueur, joueur2: Joueur):
 
     mrPropre()
 
-    print("Bienvenue dans le jeu des allumettes")
+    print(textcolor.CYAN+"\nBienvenue dans le jeu des allumettes\n"+textcolor.DEFAULT)
 
     while True:
         try:
@@ -23,7 +25,7 @@ def jeuAllumette(joueur1: Joueur, joueur2: Joueur):
             else:
                 print("Merci de choisir un nombre valide (min:6 / max:"+str(amax)+")")
         except ValueError:
-            print("Erreur de saisie")
+            print(textform.WARNING+"Erreur de saisie"+textform.DEFAULT)
 
     nrest = nallum
     print(affichageAllumette(nallum, nrest))
@@ -35,7 +37,8 @@ def jeuAllumette(joueur1: Joueur, joueur2: Joueur):
             if nret > 0 and nret < 4:
                 break
             else:
-                print("Nombre invalide, il doit être compris entre 1 et 3 inclus")
+                print(
+                    textform.WARNING+"Nombre invalide, il doit être compris entre 1 et 3 inclus"+textform.DEFAULT)
         nrest = nrest - nret
         mrPropre()
         print(affichageAllumette(nallum, nrest))
@@ -44,7 +47,8 @@ def jeuAllumette(joueur1: Joueur, joueur2: Joueur):
         else:
             cp = joueur1
 
-    print(cp.pseudo + " gagne la partie !\n")
+    print(textcolor.GREEN+cp.pseudo + " gagne la partie !\n"+textcolor.DEFAULT)
+    incrementScore(cp, "allumette")
 
 
 def affichageAllumette(nallum: int, nrest: int) -> str:
@@ -66,4 +70,5 @@ def affichageAllumette(nallum: int, nrest: int) -> str:
         else:
             show = show + " ."
 
+    show = "\n"+show+"\n"
     return show
