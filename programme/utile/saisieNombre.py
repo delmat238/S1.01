@@ -1,6 +1,7 @@
 from programme.utile.colorfull import *
 
-def saisieInt(message: str, erreur: str):
+
+def saisieInt(message: str, erreur: str = "Erreur de saisie"):
     """Saisie d'un nombre entier"""
     nombre: int
     while True:
@@ -8,7 +9,7 @@ def saisieInt(message: str, erreur: str):
             nombre = int(input(message))
             return nombre
         except ValueError:
-            print(textform.WARNING+erreur+textform.DEFAULT)
+            print(textform.WARNING + erreur + textform.DEFAULT)
 
 
 def saisieFloat(message: str, erreur: str):
@@ -19,4 +20,4 @@ def saisieFloat(message: str, erreur: str):
             nombre = float(input(message))
             return nombre
         except ValueError:
-            print(textform.WARNING+erreur+textform.DEFAULT)
+            print(textform.WARNING + erreur + textform.DEFAULT)
