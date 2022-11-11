@@ -2,19 +2,8 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="4122ac35-05de-4e6e-aa93-b11b3ffa6e2b" name="Changes" comment="Le morpion est fonctionnel manque plus que l'affichage, les points.">
-      <change afterPath="$PROJECT_DIR$/.idea/S1.01.iml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/discord.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/inspectionProfiles/Project_Default.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/inspectionProfiles/profiles_settings.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/modules.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/programme/morpion/tourMorpion.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/programme/joueur/scores" beforeDir="false" afterPath="$PROJECT_DIR$/programme/joueur/scores" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/programme/morpion/fonctionMorpion.py" beforeDir="false" afterPath="$PROJECT_DIR$/programme/morpion/fonctionMorpion.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/programme/morpion/jeuMopion.py" beforeDir="false" afterPath="$PROJECT_DIR$/programme/morpion/jeuMopion.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/programme/morpion/jeuMorpion.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/programme/utile/saisieNombre.py" beforeDir="false" afterPath="$PROJECT_DIR$/programme/utile/saisieNombre.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -47,7 +36,7 @@
     &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
     &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
     &quot;WebServerToolWindowFactoryState&quot;: &quot;false&quot;,
-    &quot;last_opened_file_path&quot;: &quot;C:/Users/matde/OneDrive - Université de Limoges/A12/SAE/S1.01/S1.01&quot;,
+    &quot;last_opened_file_path&quot;: &quot;C:/Users/matde/OneDrive - Université de Limoges/A12/Alorithme/TP/TP8&quot;,
     &quot;settings.editor.selected.configurable&quot;: &quot;com.jetbrains.python.configuration.PyActiveSdkModuleConfigurable&quot;
   }
 }</component>
@@ -108,6 +97,8 @@
       <workItem from="1667313938912" duration="754000" />
       <workItem from="1667315161235" duration="4468000" />
       <workItem from="1667552467189" duration="3999000" />
+      <workItem from="1667920888296" duration="233000" />
+      <workItem from="1667998136165" duration="33000" />
     </task>
     <task id="LOCAL-00001" summary="Création des packages python">
       <created>1666446683977</created>
