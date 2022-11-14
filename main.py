@@ -28,8 +28,8 @@ if __name__ == '__main__':
     2. Allumette
     3. Morpion
     4. Puissance 4
-    4. Scores
-    5. Quitter
+    5. Scores
+    6. Quitter
         """)
 
         choix = input("Faites votre choix : ")

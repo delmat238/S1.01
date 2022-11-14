@@ -1,5 +1,5 @@
 from programme.joueur.joueur import Joueur
-from programme.puissance4.fonctionPuissance4 import afficherPlateau, placerPion
+from programme.puissance4.fonctionPuissance4 import afficherPlateau, placerPion, pionAligne
 from programme.utile.colorfull import textcolor
 
 
@@ -14,10 +14,22 @@ def jeuPuissance4(joueur1: Joueur, joueur2: Joueur,) -> tuple[Joueur, Joueur]:
     plateau: list[list[str]] = [[" " for _ in range(7)] for _ in range(6)]
     pionJ: str = textcolor.YELLOW+'O'+textcolor.DEFAULT
     pionR: str = textcolor.RED+'O'+textcolor.DEFAULT
+    aligne: bool = False
 
     print(textcolor.CYAN+"Jeu Puissance 4"+textcolor.DEFAULT)
 
-    afficherPlateau(plateau)
-    placerPion(plateau, pionJ)
-    afficherPlateau(plateau)
+    while not aligne:
+        afficherPlateau(plateau)
+        placerPion(plateau, pionJ)
+        afficherPlateau(plateau)
+        aligne = pionAligne(plateau, pionJ)
+        if aligne:
+            break
+
+        placerPion(plateau, pionR)
+        afficherPlateau(plateau)
+        aligne = pionAligne(plateau, pionR)
+
+    return joueur1, joueur2
+
 
