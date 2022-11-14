@@ -2,6 +2,8 @@ from programme.allumette.jeuAllumette import jeuAllumette
 from programme.joueur.joueur import Joueur
 from programme.morpion.jeuMopion import jeuMopion
 from programme.devinette.jeuDevinette import jeuDevinette
+from programme.puissance4.JeuPuissance4 import jeuPuissance4
+from programme.utile.chiffrement import repair
 from programme.utile.score import menuScore
 from programme.utile.mrPropre import mrPropre
 from programme.utile.colorfull import *
@@ -20,11 +22,12 @@ if __name__ == '__main__':
     mrPropre()
     print("\n"+textcolor.BLUE+"Menu principal"+textcolor.DEFAULT)
 
-    while choix != "5":
+    while choix != "6":
         print("""
     1. Devinette
     2. Allumette
     3. Morpion
+    4. Puissance 4
     4. Scores
     5. Quitter
         """)
@@ -35,5 +38,6 @@ if __name__ == '__main__':
             case '1': jeuDevinette(joueur1, joueur2)
             case '2': jeuAllumette(joueur1, joueur2)
             case '3': jeuMopion(joueur1, joueur2)
-            case '4': menuScore(joueur1, joueur2)
-            case '5': print("Au revoir\n")
+            case '4': jeuPuissance4(joueur1, joueur2)
+            case '5': menuScore(joueur1, joueur2)
+            case '6': print("Au revoir\n")
