@@ -12,7 +12,6 @@ if __name__ == '__main__':
     choix: str = ""
     joueur1: Joueur
     joueur2: Joueur
-
     mrPropre()
     pseudo = input("Entrez le pseudo du joueur 1 : ")
     joueur1 = Joueur(pseudo)

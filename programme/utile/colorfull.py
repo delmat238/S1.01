@@ -67,3 +67,6 @@ def colorfull():
     print(bgcolor.PURPLE+"PurpleBG"+bgcolor.BLACK)
     print(bgcolor.GREY+"GreyBG"+bgcolor.BLACK)
     print(bgcolor.BLACK+"BlackBG"+bgcolor.BLACK)
+
+class maintexts:
+    MP = ""

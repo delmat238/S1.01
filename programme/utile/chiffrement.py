@@ -35,7 +35,9 @@ def decrytion(filepath: str) -> str:
                 i = i+1
 
     if error:
-        print(textform.ERROR+"Le fichier de sauvegarde est peut être endommagé. Pour résoudre ce problème, utilisez le Mode Réparation."+textform.DEFAULT)
+        print(textform.ERROR+"Le fichier de sauvegarde est endommagé, une réparation va être effectuée"+textform.DEFAULT)
+        repair()
+        jsondata = decrytion(filepath)
 
     return jsondata
 
