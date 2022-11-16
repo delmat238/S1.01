@@ -45,6 +45,7 @@ class Joueur:
         encryption("programme/joueur/scores.json")
 
     def afficherScore(self):
+        print(textcolor.PINK+"Scores du joueur "+self.pseudo+":"+textcolor.DEFAULT)
         self.afficherScoreDevinette()
         self.afficherScoreAllumette()
         self.afficherScoreMorpion()

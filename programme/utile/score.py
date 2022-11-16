@@ -90,8 +90,8 @@ def menuScore(joueur1: Joueur, joueur2: Joueur):
     choix: str = ""
     mrPropre()
 
-    print(textcolor.CYAN+maintexts.MS+textcolor.DEFAULT)
     while choix != "3":
+        print(textcolor.CYAN+maintexts.MS+textcolor.DEFAULT)
         print("""
     1. Score des Joueurs
     2. Classements
@@ -101,6 +101,7 @@ def menuScore(joueur1: Joueur, joueur2: Joueur):
         choix = input("Faites votre choix : ")
 
         match choix:
-            case '1': print("to do")
+            case '1': mrPropre(),joueur1.afficherScore(),print(),joueur2.afficherScore()
             case '2': getClassement()
-            case '3': mrPropre(),print("\n"+textcolor.BLUE+"Menu principal"+textcolor.DEFAULT)
+            case '3': mrPropre()
+            case _ : mrPropre()

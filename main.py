@@ -18,9 +18,9 @@ if __name__ == '__main__':
     joueur2 = Joueur(pseudo)
 
     mrPropre()
-    print("\n"+textcolor.BLUE+maintexts.MP+textcolor.DEFAULT)
 
     while choix != "6":
+        print("\n"+textcolor.PURPLE+maintexts.MP+textcolor.DEFAULT)
         print("""
     1. Devinette
     2. Allumette
@@ -39,3 +39,4 @@ if __name__ == '__main__':
             case '4': jeuPuissance4(joueur1, joueur2)
             case '5': menuScore(joueur1, joueur2)
             case '6': print("Au revoir\n")
+            case _ : mrPropre()

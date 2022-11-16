@@ -47,7 +47,7 @@ def jeuAllumette(joueur1: Joueur, joueur2: Joueur):
         else:
             cp = joueur1
 
-    print(textcolor.GREEN+cp.pseudo + " gagne la partie !\n"+textcolor.DEFAULT)
+    print(textcolor.GREEN+cp.pseudo + " gagne la partie !"+textcolor.DEFAULT)
     incrementScore(cp, "allumette")
 
 

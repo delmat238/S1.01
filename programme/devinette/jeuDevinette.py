@@ -5,7 +5,6 @@ from programme.utile.saisieNombre import saisieInt
 from programme.utile.score import incrementScore
 from programme.utile.colorfull import *
 
-
 def jeuDevinette(joueur1: Joueur, joueur2: Joueur):
     """
     Fonction principal du jeu Devinette
