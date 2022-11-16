@@ -25,10 +25,10 @@ def tourDeJeu(joueurChoisit, joueurCherche, borne: int) -> int:
             print("Erreur de saisie")
 
     while choix != 3:
-        proposition = saisieInt(joueurCherche.pseudo + " devine le nombre : ", "Erreur de saisie")
+        proposition = saisieInt("\n"+joueurCherche.pseudo + " devine le nombre : ", "Erreur de saisie")
         comptJoueur += 1
 
-        print(joueurChoisit.pseudo, "à vous de jouer")
+        print("\n"+joueurChoisit.pseudo, "à vous de jouer")
         print(proposition, "est :")
         print("1. Plus grand")
         print("2. Plus petit")

@@ -3,7 +3,6 @@ from programme.joueur.joueur import Joueur
 from programme.morpion.jeuMopion import jeuMopion
 from programme.devinette.jeuDevinette import jeuDevinette
 from programme.puissance4.JeuPuissance4 import jeuPuissance4
-from programme.utile.chiffrement import repair
 from programme.utile.score import menuScore
 from programme.utile.mrPropre import mrPropre
 from programme.utile.colorfull import *
