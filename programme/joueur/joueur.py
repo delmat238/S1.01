@@ -7,6 +7,7 @@ class Joueur:
     scoreDevinette: int
     scoreAllumette: int
     scoreMorpion: int
+    scoreP4: int
 
     def __init__(self, pseudo: str):
         self.pseudo = pseudo
