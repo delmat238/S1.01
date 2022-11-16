@@ -12,7 +12,6 @@ if __name__ == '__main__':
     choix: str = ""
     joueur1: Joueur
     joueur2: Joueur
-
     mrPropre()
     pseudo = input("Entrez le pseudo du joueur 1 : ")
     joueur1 = Joueur(pseudo)
@@ -20,7 +19,7 @@ if __name__ == '__main__':
     joueur2 = Joueur(pseudo)
 
     mrPropre()
-    print("\n"+textcolor.BLUE+"Menu principal"+textcolor.DEFAULT)
+    print("\n"+textcolor.BLUE+maintexts.MP+textcolor.DEFAULT)
 
     while choix != "6":
         print("""

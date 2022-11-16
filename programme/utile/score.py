@@ -90,7 +90,7 @@ def menuScore(joueur1: Joueur, joueur2: Joueur):
     choix: str = ""
     mrPropre()
 
-    print(textcolor.CYAN+"\nBienvenue dans les scores !"+textcolor.DEFAULT)
+    print(textcolor.CYAN+maintexts.MS+textcolor.DEFAULT)
     while choix != "3":
         print("""
     1. Score des Joueurs

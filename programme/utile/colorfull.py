@@ -1,18 +1,21 @@
+# Contient les éléments "cosmétiques" des affichages
+
 class textform:
-    #utiles
+    # utiles
     WARNING = '\033[93m'
     ERROR = '\033[91m'
 
-    #format
+    # format
     BOLD = '\033[1m'
     UNDERLINE = '\033[4m'
 
-    #defaut
+    # defaut
     DEFAULT = '\033[0m'
+
 
 class textcolor:
 
-    #couleurs
+    # couleurs
     RED = '\033[31m'
     YELLOW = '\033[33m'
     GREEN = '\033[32m'
@@ -23,12 +26,13 @@ class textcolor:
     GREY = '\033[37m'
     BLACK = '\033[30m'
 
-    #defaut
+    # defaut
     DEFAULT = '\033[0m'
+
 
 class bgcolor:
 
-    #couleurs
+    # couleurs
     BLACK = '\033[40m'
     RED = '\033[41m'
     YELLOW = '\033[43m'
@@ -37,6 +41,7 @@ class bgcolor:
     BLUE = '\033[44m'
     PURPLE = '\033[45m'
     GREY = '\033[47m'
+
 
 def colorfull():
     """Display all colorfull options"""
@@ -58,7 +63,6 @@ def colorfull():
     print(textcolor.BLACK+"Black"+textcolor.DEFAULT)
     print(textcolor.DEFAULT+"Defaut"+textcolor.DEFAULT)
 
-
     print(bgcolor.RED+"RedBG"+bgcolor.BLACK)
     print(bgcolor.YELLOW+"OrangeBG"+bgcolor.BLACK)
     print(bgcolor.GREEN+"GreenBG"+bgcolor.BLACK)
@@ -67,3 +71,22 @@ def colorfull():
     print(bgcolor.PURPLE+"PurpleBG"+bgcolor.BLACK)
     print(bgcolor.GREY+"GreyBG"+bgcolor.BLACK)
     print(bgcolor.BLACK+"BlackBG"+bgcolor.BLACK)
+
+
+class maintexts:
+    MP = """                                        
+     _____                _____     _         _         _ 
+    |     |___ ___ _ _   |  _  |___|_|___ ___|_|___ ___| |
+    | | | | -_|   | | |  |   __|  _| |   |  _| | . | .'| |
+    |_|_|_|___|_|_|___|  |__|  |_| |_|_|_|___|_|  _|__,|_|
+                                               |_|        
+                                               """
+
+    MS="""
+     _____                         
+    /  ___|                        
+    \ `--.  ___ ___  _ __ ___  ___ 
+     `--. \/ __/ _ \| '__/ _ \/ __|
+    /\__/ / (_| (_) | | |  __/\__ \ 
+    \____/ \___\___/|_|  \___||___/
+                               """
