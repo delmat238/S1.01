@@ -19,7 +19,7 @@ if __name__ == '__main__':
     joueur2 = Joueur(pseudo)
 
     mrPropre()
-    print("\n"+textcolor.BLUE+"Menu principal"+textcolor.DEFAULT)
+    print("\n"+textcolor.BLUE+maintexts.MP+textcolor.DEFAULT)
 
     while choix != "6":
         print("""

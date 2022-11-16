@@ -33,12 +33,10 @@ def decrytion(filepath: str) -> str:
                 except UnicodeDecodeError:
                     error = True
                 i = i+1
-
     if error:
         print(textform.ERROR+"Le fichier de sauvegarde est endommagé, une réparation va être effectuée"+textform.DEFAULT)
         repair()
         jsondata = decrytion(filepath)
-
     return jsondata
 
 
