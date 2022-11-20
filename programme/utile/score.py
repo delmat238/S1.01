@@ -14,7 +14,7 @@ def setScore(score: int, joueur: Joueur, nomjeu: str):
         joueur (Joueur): Joueur concerné
     """
 
-    data = json.loads(decrytion("programme/joueur/scores"))
+    data = json.loads(decrytion("programme/joueur/scores.dat"))
     with open("programme/joueur/scores.json", "w") as w_score_file:
         if joueur.pseudo in data['players']:
             data['players'][joueur.pseudo][nomjeu] = score
@@ -37,7 +37,7 @@ def incrementScore(joueur: Joueur, nomjeu: str):
         joueur (Joueur): joueur dont le score est augmenté
         nomjeu (str): nom du jeu pour lequel le score est augmenté
     """
-    data = json.loads(decrytion("programme/joueur/scores"))
+    data = json.loads(decrytion("programme/joueur/scores.dat"))
     with open("programme/joueur/scores.json", "w") as w_score_file:
         if joueur.pseudo in data['players']:
             data['players'][joueur.pseudo][nomjeu] = int(
@@ -60,7 +60,7 @@ def resetScore(joueur: Joueur):
     Args:
         joueur (Joueur): Joueur dont les scores sont remis à 0
     """
-    data = json.loads(decrytion("programme/joueur/scores"))
+    data = json.loads(decrytion("programme/joueur/scores.dat"))
     with open("programme/joueur/scores.json", "w") as w_score_file:
         data['players'][joueur.pseudo] = {
             "allumette": 0,
@@ -72,11 +72,34 @@ def resetScore(joueur: Joueur):
     joueur.reloadScore()
 
 
-def getClassement():
+def classementJeu(nomjeu: str):
+    listejoueurs: list = []
+    scoresjoueurs: list = []
+    classement: list[tuple] = []
+    data = json.loads(decrytion("programme/joueur/scores.dat"))
+
+    for joueur in data['players']:                          #Récupération de la liste des joueurs
+        listejoueurs.append(joueur)
+
+    for i in range(0, len(data['players'])):                #Récupération des scores des joueurs
+        scoresjoueurs.append(data['players'][listejoueurs[i]][nomjeu])
+
+    classement = sorted(zip(scoresjoueurs, listejoueurs),reverse=True)   #Association des scores et des joueurs
+    print(textform.BOLD+textcolor.PINK+"Classement "+nomjeu+textform.DEFAULT)
+
+    for i in range(0, len(classement)):                     #Affichage des scores pour le jeu donné
+        print(textform.BOLD+str(i+1)+" : "+textform.DEFAULT +
+              classement[i][1]+" - "+str(classement[i][0]))
+    print()
+
+
+def printClassement():
     """Affiche le classement des meilleurs joueurs
     """
-
-    print("*classement*")
+    jeu: str
+    mrPropre()
+    for jeu in {'allumette', 'devinette', 'morpion', 'puissance 4'}:
+        classementJeu(jeu)
 
 
 def menuScore(joueur1: Joueur, joueur2: Joueur):
@@ -101,7 +124,7 @@ def menuScore(joueur1: Joueur, joueur2: Joueur):
         choix = input("Faites votre choix : ")
 
         match choix:
-            case '1': mrPropre(),joueur1.afficherScore(),print(),joueur2.afficherScore()
-            case '2': getClassement()
+            case '1': mrPropre(), joueur1.afficherScore(), print(), joueur2.afficherScore()
+            case '2': printClassement()
             case '3': mrPropre()
-            case _ : mrPropre()
+            case _: mrPropre()

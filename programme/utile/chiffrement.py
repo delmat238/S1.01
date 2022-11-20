@@ -55,7 +55,7 @@ def encryption(filepath: str):
     key: hash = sha256(('key').encode('utf-8')).digest()
 
     with open(filepath, 'rb') as rfile:
-        with open("programme/joueur/scores", 'wb') as wfile:
+        with open("programme/joueur/scores.dat", 'wb') as wfile:
             i = 0
             while rfile.peek():
                 unicode = ord(rfile.read(1))
