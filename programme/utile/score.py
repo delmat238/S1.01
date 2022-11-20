@@ -72,23 +72,35 @@ def resetScore(joueur: Joueur):
     joueur.reloadScore()
 
 
-def classementJeu(nomjeu : str):
-    """Affiche le classement des meilleurs joueurs
-    """
-    listejoueurs : list = []
-    scoresjoueurs : list = []
+def classementJeu(nomjeu: str):
+    listejoueurs: list = []
+    scoresjoueurs: list = []
+    classement: list[tuple] = []
     data = json.loads(decrytion("programme/joueur/scores.dat"))
-    for joueur in data['players']:
+
+    for joueur in data['players']:                          #Récupération de la liste des joueurs
         listejoueurs.append(joueur)
-    for i in range(0,len(data['players'])):
+
+    for i in range(0, len(data['players'])):                #Récupération des scores des joueurs
         scoresjoueurs.append(data['players'][listejoueurs[i]][nomjeu])
-    print(listejoueurs)
-    print(scoresjoueurs)
+
+    classement = sorted(zip(scoresjoueurs, listejoueurs),reverse=True)   #Association des scores et des joueurs
+    print(textform.BOLD+textcolor.PINK+"Classement "+nomjeu+textform.DEFAULT)
+
+    for i in range(0, len(classement)):                     #Affichage des scores pour le jeu donné
+        print(textform.BOLD+str(i+1)+" : "+textform.DEFAULT +
+              classement[i][1]+" - "+str(classement[i][0]))
+    print()
+
 
 def printClassement():
-    jeu : str
-    for jeu in {'allumette','devinette','morpion','puissance 4'}:
+    """Affiche le classement des meilleurs joueurs
+    """
+    jeu: str
+    mrPropre()
+    for jeu in {'allumette', 'devinette', 'morpion', 'puissance 4'}:
         classementJeu(jeu)
+
 
 def menuScore(joueur1: Joueur, joueur2: Joueur):
     """Gère le menu des scores
@@ -112,7 +124,7 @@ def menuScore(joueur1: Joueur, joueur2: Joueur):
         choix = input("Faites votre choix : ")
 
         match choix:
-            case '1': mrPropre(),joueur1.afficherScore(),print(),joueur2.afficherScore()
+            case '1': mrPropre(), joueur1.afficherScore(), print(), joueur2.afficherScore()
             case '2': printClassement()
             case '3': mrPropre()
-            case _ : mrPropre()
+            case _: mrPropre()
