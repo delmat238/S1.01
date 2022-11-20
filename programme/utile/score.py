@@ -14,7 +14,7 @@ def setScore(score: int, joueur: Joueur, nomjeu: str):
         joueur (Joueur): Joueur concerné
     """
 
-    data = json.loads(decrytion("programme/joueur/scores"))
+    data = json.loads(decrytion("programme/joueur/scores.dat"))
     with open("programme/joueur/scores.json", "w") as w_score_file:
         if joueur.pseudo in data['players']:
             data['players'][joueur.pseudo][nomjeu] = score
@@ -37,7 +37,7 @@ def incrementScore(joueur: Joueur, nomjeu: str):
         joueur (Joueur): joueur dont le score est augmenté
         nomjeu (str): nom du jeu pour lequel le score est augmenté
     """
-    data = json.loads(decrytion("programme/joueur/scores"))
+    data = json.loads(decrytion("programme/joueur/scores.dat"))
     with open("programme/joueur/scores.json", "w") as w_score_file:
         if joueur.pseudo in data['players']:
             data['players'][joueur.pseudo][nomjeu] = int(
@@ -60,7 +60,7 @@ def resetScore(joueur: Joueur):
     Args:
         joueur (Joueur): Joueur dont les scores sont remis à 0
     """
-    data = json.loads(decrytion("programme/joueur/scores"))
+    data = json.loads(decrytion("programme/joueur/scores.dat"))
     with open("programme/joueur/scores.json", "w") as w_score_file:
         data['players'][joueur.pseudo] = {
             "allumette": 0,
@@ -77,7 +77,7 @@ def classementJeu(nomjeu : str):
     """
     listejoueurs : list = []
     scoresjoueurs : list = []
-    data = json.loads(decrytion("programme/joueur/scores"))
+    data = json.loads(decrytion("programme/joueur/scores.dat"))
     for joueur in data['players']:
         listejoueurs.append(joueur)
     for i in range(0,len(data['players'])):

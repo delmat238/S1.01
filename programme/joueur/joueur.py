@@ -12,11 +12,11 @@ class Joueur:
     def __init__(self, pseudo: str):
         self.pseudo = pseudo
         try:
-            data = json.loads(decrytion("programme/joueur/scores"))
+            data = json.loads(decrytion("programme/joueur/scores.dat"))
         except FileNotFoundError:
             print("\n"+textform.WARNING+"Fichier de sauvegarde absent, un nouveau sera généré."+textform.DEFAULT)
             repair()
-            data = json.loads(decrytion("programme/joueur/scores"))
+            data = json.loads(decrytion("programme/joueur/scores.dat"))
         with open("programme/joueur/scores.json", "w") as w_score_file:
             if not pseudo in data['players']:
                 data['players'][pseudo] = {
