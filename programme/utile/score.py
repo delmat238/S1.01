@@ -72,12 +72,23 @@ def resetScore(joueur: Joueur):
     joueur.reloadScore()
 
 
-def getClassement():
+def classementJeu(nomjeu : str):
     """Affiche le classement des meilleurs joueurs
     """
+    listejoueurs : list = []
+    scoresjoueurs : list = []
+    data = json.loads(decrytion("programme/joueur/scores"))
+    for joueur in data['players']:
+        listejoueurs.append(joueur)
+    for i in range(0,len(data['players'])):
+        scoresjoueurs.append(data['players'][listejoueurs[i]][nomjeu])
+    print(listejoueurs)
+    print(scoresjoueurs)
 
-    print("*classement*")
-
+def printClassement():
+    jeu : str
+    for jeu in {'allumette','devinette','morpion','puissance 4'}:
+        classementJeu(jeu)
 
 def menuScore(joueur1: Joueur, joueur2: Joueur):
     """Gère le menu des scores
@@ -102,6 +113,6 @@ def menuScore(joueur1: Joueur, joueur2: Joueur):
 
         match choix:
             case '1': mrPropre(),joueur1.afficherScore(),print(),joueur2.afficherScore()
-            case '2': getClassement()
+            case '2': printClassement()
             case '3': mrPropre()
             case _ : mrPropre()
