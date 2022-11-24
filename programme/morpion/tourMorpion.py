@@ -45,13 +45,15 @@ def tourMorpion(joueur1: Joueur, joueur2: Joueur) -> tuple[Joueur, Joueur]:
         if aligne or plein:
             break
 
-    if pion == "X" and not plein:
+    if pion == "X":
         print(joueur1.pseudo + " a gagné !")
         incrementScore(joueur1, "morpion")
-    elif pion == "O" and not plein:
+    elif pion == "O":
         print(joueur2.pseudo + " a gagné !")
         incrementScore(joueur2, "morpion")
-    else:
+    elif plein:
         print("Match nul !")
 
     return joueur1, joueur2
+
+
