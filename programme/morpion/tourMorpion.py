@@ -1,9 +1,10 @@
 from programme.joueur.joueur import Joueur
 from programme.morpion.fonctionMorpion import pionAligne, affichePlateau, saisieX, saisieY, plateauPlein
+from programme.utile.ConfirmRetour import confirmRetour
 from programme.utile.score import incrementScore
 
 
-def tourMorpion(joueur1: Joueur, joueur2: Joueur) -> tuple[Joueur, Joueur]:
+def tourMorpion(joueur1: Joueur, joueur2: Joueur):
     plateau: list[list[str]] = [
         ["-", "-", "-"], ["-", "-", "-"], ["-", "-", "-"]]
     x: int
@@ -54,6 +55,4 @@ def tourMorpion(joueur1: Joueur, joueur2: Joueur) -> tuple[Joueur, Joueur]:
     elif plein:
         print("Match nul !")
 
-    return joueur1, joueur2
-
-
+    confirmRetour()

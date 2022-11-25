@@ -1,10 +1,12 @@
 from programme.joueur.joueur import Joueur
+from programme.utile.ConfirmRetour import confirmRetour
 from programme.utile.colorfull import textcolor
 from programme.utile.mrPropre import mrPropre
 from programme.utile.saisieNombre import saisieInt
+from programme.utile.score import incrementScore
 
 
-def afficherPlateau(plateau: list[list[str]]) -> None:
+def afficherPlateau(plateau: list[list[str]]):
     """
     Affiche le plateau de jeu
     :param plateau: le plateau de jeu
@@ -19,7 +21,7 @@ def afficherPlateau(plateau: list[list[str]]) -> None:
     print()
 
 
-def placerPion(plateau: list[list[str]], pion: str) -> None:
+def placerPion(plateau: list[list[str]], pion: str):
     """
     Place un pion dans la colonne donnée
     :param plateau: le plateau de jeu
@@ -88,7 +90,7 @@ def plateauPlein(plateau: list[list[str]]) -> bool:
     return True
 
 
-def tourPuissance4(joueur1: Joueur, joueur2: Joueur) -> tuple[Joueur, Joueur]:
+def tourPuissance4(joueur1: Joueur, joueur2: Joueur):
     """
     Joue une partie de puissance 4 entre deux joueurs
     :param joueur1: Le premier joueur
@@ -115,7 +117,7 @@ def tourPuissance4(joueur1: Joueur, joueur2: Joueur) -> tuple[Joueur, Joueur]:
         aligne = pionAligne(plateau, pionJ)
         if aligne:
             print(textcolor.CYAN + "Le joueur " + joueur1.pseudo + " a gagné !" + textcolor.DEFAULT)
-            joueur1.scoreP4 += 1
+            incrementScore(joueur1, "puissance 4")
         if plateauPlein(plateau) or aligne:
             break
 
@@ -126,9 +128,9 @@ def tourPuissance4(joueur1: Joueur, joueur2: Joueur) -> tuple[Joueur, Joueur]:
         aligne = pionAligne(plateau, pionR)
         if aligne:
             print(textcolor.CYAN + "Le joueur " + joueur2.pseudo + " a gagné !" + textcolor.DEFAULT)
-            joueur2.scoreP4 += 1
+            incrementScore(joueur2, "puissance 4")
 
     if plateauPlein(plateau):
         print(textcolor.CYAN + "Match nul !" + textcolor.DEFAULT)
 
-    return joueur1, joueur2
+    confirmRetour()
