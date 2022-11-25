@@ -1,6 +1,6 @@
 from programme.allumette.jeuAllumette import jeuAllumette
 from programme.joueur.joueur import Joueur
-from programme.morpion.jeuMopion import jeuMopion
+from programme.morpion.jeuMopion import jeuMorpion
 from programme.devinette.jeuDevinette import jeuDevinette
 from programme.puissance4.JeuPuissance4 import jeuPuissance4
 from programme.utile.score import menuScore
@@ -35,7 +35,7 @@ if __name__ == '__main__':
         match choix:
             case '1': jeuDevinette(joueur1, joueur2)
             case '2': jeuAllumette(joueur1, joueur2)
-            case '3': jeuMopion(joueur1, joueur2)
+            case '3': jeuMorpion(joueur1, joueur2)
             case '4': jeuPuissance4(joueur1, joueur2)
             case '5': menuScore(joueur1, joueur2)
             case '6': print("Au revoir\n")
