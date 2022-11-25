@@ -5,7 +5,7 @@ from programme.utile.saisieNombre import saisieInt
 
 
 def affichePlateau(plateau: list[list[str]]) -> None:
-    """ Affiche le plateau de jeu
+    """ Affiche le plateau de jeu du Morpion
     """
     print("  0 1 2")
     for i in range(3):
@@ -35,8 +35,14 @@ def saisieY(joueur: Joueur) -> int:
     return y
 
 
-def pionAligne(plateau: list[list[str]]) -> tuple[str, str] | bool:
-    """ Vérifie si un pion est aligné
+def pionAligne(plateau: list[list[str]]) -> tuple[str, str]:
+    """Vérifie si un pion est aligné
+
+    Args:
+        plateau (list[list[str]]): Plateau de jeu
+
+    Returns:
+        tuple[str, str]: 'Vrai' si il y a une ligne de 3, symbole du gagnant
     """
     if plateau[0][0] == plateau[0][1] and plateau[0][0] == plateau[0][2] and plateau[0][0] != "-":
         return "True", plateau[0][0]
@@ -58,12 +64,16 @@ def pionAligne(plateau: list[list[str]]) -> tuple[str, str] | bool:
 
 
 def plateauPlein(plateau: list[list[str]]) -> bool:
-    """ Vérifie si le plateau est plein
+    """Vérifie si le plateau est plein
+
+    Args:
+        plateau (list[list[str]]): Plateau de jeu
+
+    Returns:
+        bool: Vrai si le plateau est plein
     """
     for i in range(3):
         for j in range(3):
             if plateau[i][j] == "-":
                 return False
     return True
-
-

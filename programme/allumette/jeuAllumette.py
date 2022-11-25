@@ -6,26 +6,21 @@ from programme.utile.colorfull import *
 
 
 def jeuAllumette(joueur1: Joueur, joueur2: Joueur):
+    """Procédure gérant le jeu des allumettes
 
-    #amax: int = 20  # Détermine un nombre max d'allumettes possible
-    nallum: int = 20  # Nombre d'allumettes
-    nret: int  # Nombre d'allumettes retirées
-    nrest: int  # Nombre d'allumettes restantes
-    cp: Joueur = joueur1  # Joueur actuel
+    Args:
+        joueur1 (Joueur): Premier Joueur
+        joueur2 (Joueur): Second Joueur
+    """
+
+    nallum: int = 20
+    nret: int
+    nrest: int
+    cp: Joueur = joueur1
 
     mrPropre()
 
     print(textcolor.CYAN+"\nBienvenue dans le jeu des allumettes\n"+textcolor.DEFAULT)
-
-    # while True:
-    #     try:
-    #         nallum = int(input("Sélectionnez le nombre d'allumettes : "))
-    #         if nallum >= 6 and nallum <= amax:
-    #             break
-    #         else:
-    #             print("Merci de choisir un nombre valide (min:6 / max:"+str(amax)+")")
-    #     except ValueError:
-    #         print(textform.WARNING+"Erreur de saisie"+textform.DEFAULT)
 
     nrest = nallum
     print(affichageAllumette(nallum, nrest))

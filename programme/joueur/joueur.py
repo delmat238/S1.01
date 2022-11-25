@@ -46,6 +46,8 @@ class Joueur:
         encryption("programme/joueur/scores.json")
 
     def afficherScore(self):
+        """Affiche la totalité des scores
+        """
         print(textcolor.PINK + "Scores du joueur " + self.pseudo + ":" + textcolor.DEFAULT)
         self.afficherScoreDevinette()
         self.afficherScoreAllumette()
@@ -53,13 +55,21 @@ class Joueur:
         self.afficherScoreP4()
 
     def afficherScoreDevinette(self):
+        """Affiche les scores de Devinette
+        """
         print("Score Devinette : ", self.scoreDevinette)
 
     def afficherScoreAllumette(self):
+        """Affiche les scores des Allumettes
+        """
         print("Score Allumette : ", self.scoreAllumette)
 
     def afficherScoreMorpion(self):
+        """Affiche les scores du Morpion
+        """
         print("Score Morpion : ", self.scoreMorpion)
 
     def afficherScoreP4(self):
+        """Affiche les scores du Puissance4
+        """
         print("Score Puissance 4 : ", self.scoreP4)

@@ -8,11 +8,11 @@ from programme.utile.colorfull import *
 
 
 def jeuDevinette(joueur1: Joueur, joueur2: Joueur):
-    """
-    Fonction principal du jeu Devinette
-    :param joueur1:
-    :param joueur2:
-    :return:
+    """Procédure gérant le jeu Devinette
+
+    Args:
+        joueur1 (Joueur): _description_
+        joueur2 (Joueur): _description_
     """
     comptJ1: int
     comptJ2: int

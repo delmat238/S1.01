@@ -1,21 +1,26 @@
 import getpass
 
+from programme.joueur.joueur import Joueur
 from programme.utile.mrPropre import mrPropre
 from programme.utile.saisieNombre import saisieInt
 
 
-def tourDeJeu(joueurChoisit, joueurCherche, borne: int) -> int:
-    """
-    Fonction qui fait un tour de jeu du jeu Devinette
-    :param joueurChoisit:
-    :param joueurCherche:
-    :param borne:
-    :return:
+def tourDeJeu(joueurChoisit:Joueur, joueurCherche:Joueur, borne: int) -> int:
+    """Procédure gérant un tour du jeu Devinette
+
+    Args:
+        joueurChoisit (Joueur): Joueur qui choisit la borne
+        joueurCherche (Joueur): Joueur qui joue en 2e
+        borne (int): Borne définie par le premier joueur
+
+    Returns:
+        int: Nombre de coups pour trouver le nombre
     """
 
     comptJoueur: int = 0
     nbATrouver: int = 0
     choix: int = 0
+    proposition : int
 
     while nbATrouver <= 0 or nbATrouver >= borne:
         try:
