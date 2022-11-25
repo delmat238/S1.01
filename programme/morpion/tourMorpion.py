@@ -5,6 +5,12 @@ from programme.utile.score import incrementScore
 
 
 def tourMorpion(joueur1: Joueur, joueur2: Joueur):
+    """Procédure gérant un tour de morpion
+
+    Args:
+        joueur1 (Joueur): Joueur 1
+        joueur2 (Joueur): Joueur 2
+    """
     plateau: list[list[str]] = [
         ["-", "-", "-"], ["-", "-", "-"], ["-", "-", "-"]]
     x: int

@@ -7,10 +7,10 @@ from programme.utile.score import incrementScore
 
 
 def afficherPlateau(plateau: list[list[str]]):
-    """
-    Affiche le plateau de jeu
-    :param plateau: le plateau de jeu
-    :return: None
+    """Affiche le plateau de jeu du Puissance 4
+
+    Args:
+        plateau (list[list[str]]): Plateau de Jeu
     """
     print(" 0 1 2 3 4 5 6")
     for ligne in plateau:
@@ -22,11 +22,11 @@ def afficherPlateau(plateau: list[list[str]]):
 
 
 def placerPion(plateau: list[list[str]], pion: str):
-    """
-    Place un pion dans la colonne donnée
-    :param plateau: le plateau de jeu
-    :param pion: le pion à placer
-    :return: None
+    """Place un pion dans la colonne donnée
+
+    Args:
+        plateau (list[list[str]]): Plateau
+        pion (str): Chaine affichée en tant que pion
     """
     i: int = 5
     colonne: int = saisieInt("Choisissez une colonne : ")
@@ -42,11 +42,14 @@ def placerPion(plateau: list[list[str]], pion: str):
 
 
 def pionAligne(plateau: list[list[str]], pion: str) -> bool:
-    """
-    Vérifie si un pion est aligné
-    :param plateau: le plateau de jeu
-    :param pion: le pion à vérifier
-    :return: True si le pion est aligné, False sinon
+    """Vérifie si un pion est aligné
+
+    Args:
+        plateau (list[list[str]]): Plateau de Jeu
+        pion (str): Chaine affichée en tant que pion
+
+    Returns:
+        bool: Vrai si le pion est aligné
     """
     # Vérification horizontale
     for ligne in plateau:
@@ -78,10 +81,13 @@ def pionAligne(plateau: list[list[str]], pion: str) -> bool:
 
 
 def plateauPlein(plateau: list[list[str]]) -> bool:
-    """
-    Vérifie si le plateau est plein
-    :param plateau: le plateau de jeu
-    :return: True si le plateau est plein, False sinon
+    """Vérifie si le plateau est plein
+
+    Args:
+        plateau (list[list[str]]): Plateau de jeu
+
+    Returns:
+        bool: Vrai si le plateau est plein
     """
     for ligne in plateau:
         for case in ligne:
@@ -91,11 +97,11 @@ def plateauPlein(plateau: list[list[str]]) -> bool:
 
 
 def tourPuissance4(joueur1: Joueur, joueur2: Joueur):
-    """
-    Joue une partie de puissance 4 entre deux joueurs
-    :param joueur1: Le premier joueur
-    :param joueur2: Le deuxieme joueur
-    :return: Le joueur gagnant et le joueur perdant
+    """Joue une partie de puissance 4 entre deux joueurs
+
+    Args:
+        joueur1 (Joueur): Joueur 1
+        joueur2 (Joueur): Joueur 2
     """
 
     plateau: list[list[str]] = [[" " for _ in range(7)] for _ in range(6)]
@@ -116,7 +122,8 @@ def tourPuissance4(joueur1: Joueur, joueur2: Joueur):
         afficherPlateau(plateau)
         aligne = pionAligne(plateau, pionJ)
         if aligne:
-            print(textcolor.CYAN + "Le joueur " + joueur1.pseudo + " a gagné !" + textcolor.DEFAULT)
+            print(textcolor.CYAN + "Le joueur " +
+                  joueur1.pseudo + " a gagné !" + textcolor.DEFAULT)
             incrementScore(joueur1, "puissance 4")
         if plateauPlein(plateau) or aligne:
             break
@@ -127,7 +134,8 @@ def tourPuissance4(joueur1: Joueur, joueur2: Joueur):
         afficherPlateau(plateau)
         aligne = pionAligne(plateau, pionR)
         if aligne:
-            print(textcolor.CYAN + "Le joueur " + joueur2.pseudo + " a gagné !" + textcolor.DEFAULT)
+            print(textcolor.CYAN + "Le joueur " +
+                  joueur2.pseudo + " a gagné !" + textcolor.DEFAULT)
             incrementScore(joueur2, "puissance 4")
 
     if plateauPlein(plateau):

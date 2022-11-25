@@ -19,7 +19,8 @@ def saisieX(joueur: Joueur) -> int:
     """ Saisie de la ligne
     """
     while True:
-        x = saisieInt(joueur.pseudo + " entrez la ligne : ", "Erreur de saisie")
+        x = saisieInt(joueur.pseudo + " entrez la ligne : ",
+                      "Erreur de saisie")
         if x >= 0 and x <= 2:
             break
     return x
@@ -29,7 +30,8 @@ def saisieY(joueur: Joueur) -> int:
     """ Saisie de la colonne
     """
     while True:
-        y = saisieInt(joueur.pseudo + " entrez la colonne : ", "Erreur de saisie")
+        y = saisieInt(joueur.pseudo + " entrez la colonne : ",
+                      "Erreur de saisie")
         if y >= 0 and y <= 2:
             break
     return y

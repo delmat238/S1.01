@@ -4,11 +4,11 @@ from programme.utile.colorfull import textcolor
 
 
 def jeuPuissance4(joueur1: Joueur, joueur2: Joueur, ):
-    """
-    Joue une partie de puissance 4 entre deux joueurs
-    :param joueur1: le premier joueur
-    :param joueur2: le deuxième joueur
-    :return: le joueur gagnant et le joueur perdant
+    """Joue une partie de puissance 4 entre deux joueurs
+
+    Args:
+        joueur1 (Joueur): Joueur 1
+        joueur2 (Joueur): Joueur 2
     """
 
     pseudo: str = ''

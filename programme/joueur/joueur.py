@@ -14,7 +14,8 @@ class Joueur:
         try:
             data = json.loads(decrytion("programme/joueur/scores.dat"))
         except FileNotFoundError:
-            print("\n" + textform.WARNING + "Fichier de sauvegarde absent, un nouveau sera généré." + textform.DEFAULT)
+            print("\n" + textform.WARNING +
+                  "Fichier de sauvegarde absent, un nouveau sera généré." + textform.DEFAULT)
             repair()
             data = json.loads(decrytion("programme/joueur/scores.dat"))
         with open("programme/joueur/scores.json", "w") as w_score_file:
@@ -48,7 +49,8 @@ class Joueur:
     def afficherScore(self):
         """Affiche la totalité des scores
         """
-        print(textcolor.PINK + "Scores du joueur " + self.pseudo + ":" + textcolor.DEFAULT)
+        print(textcolor.PINK + "Scores du joueur " +
+              self.pseudo + ":" + textcolor.DEFAULT)
         self.afficherScoreDevinette()
         self.afficherScoreAllumette()
         self.afficherScoreMorpion()

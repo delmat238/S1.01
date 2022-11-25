@@ -44,7 +44,7 @@ class bgcolor:
 
 
 def colorfull():
-    """Display all colorfull options"""
+    """Affiche toutes les couleurs"""
 
     print(textform.WARNING+"Warning"+textform.DEFAULT)
     print(textform.ERROR+"Error"+textform.DEFAULT)

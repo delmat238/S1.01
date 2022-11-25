@@ -3,7 +3,13 @@ from programme.morpion.tourMorpion import tourMorpion
 from programme.utile.colorfull import *
 
 
-def jeuMorpion(joueur1: Joueur, joueur2: Joueur) -> None:
+def jeuMorpion(joueur1: Joueur, joueur2: Joueur):
+    """Permet de gérer le jeu du Morpion
+
+    Args:
+        joueur1 (Joueur): Joueur 1
+        joueur2 (Joueur): Joueur 2
+    """
     pseudo: str = ""
 
     while pseudo != joueur1.pseudo and pseudo != joueur2.pseudo:

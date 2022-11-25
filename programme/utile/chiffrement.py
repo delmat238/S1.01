@@ -66,8 +66,10 @@ def encryption(filepath: str):
 
 
 def repair():
+    """Permet la création ou la réparation d'une sauvegarde
+    """
     data = json.loads("{\"players\":{}}")
     with open("programme/joueur/scores.json", "w") as w_score_file:
         json.dump(data, w_score_file, indent=4)
     encryption("programme/joueur/scores.json")
-    print("\n"+textcolor.GREEN+"Réparation Terminée"+textcolor.DEFAULT+"\n")
+    print("\n"+textcolor.GREEN+"Nouvelle sauvegarde crée"+textcolor.DEFAULT+"\n")
