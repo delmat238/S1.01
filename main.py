@@ -11,10 +11,15 @@ if __name__ == '__main__':
     choix: str = ""
     joueur1: Joueur
     joueur2: Joueur
+    pseudo: str
     mrPropre()
     pseudo = input("Entrez le pseudo du joueur 1 : ")
     joueur1 = Joueur(pseudo)
-    pseudo = input("Entrez le pseudo du joueur 2 : ")
+    while pseudo == joueur1.pseudo:
+        pseudo = input("Entrez le pseudo du joueur 2 : ")
+        if pseudo == joueur1.pseudo:
+            print(textform.ERROR +
+                  "Ce pseudo est déjà utilisé par le joueur 1"+textform.DEFAULT)
     joueur2 = Joueur(pseudo)
 
     mrPropre()
@@ -39,4 +44,4 @@ if __name__ == '__main__':
             case '4': jeuPuissance4(joueur1, joueur2)
             case '5': menuScore(joueur1, joueur2)
             case '6': print("Au revoir\n")
-            case _ : mrPropre()
+            case _: mrPropre()

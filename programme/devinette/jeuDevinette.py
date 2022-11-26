@@ -35,12 +35,12 @@ def jeuDevinette(joueur1: Joueur, joueur2: Joueur):
     comptJ1 = tourDeJeu(joueur2, joueur1, borne)
 
     if comptJ1 < comptJ2:
-        print("\n" + joueur1.pseudo + ", vous avez gagné !")
+        print("\n" +textcolor.GREEN+ joueur1.pseudo + ", vous avez gagné !"+textcolor.DEFAULT+"\n")
         incrementScore(joueur1, "devinette")
     elif comptJ1 > comptJ2:
-        print("\n" + joueur2.pseudo + ", vous avez gagné !")
+        print("\n" +textcolor.GREEN+ joueur2.pseudo + ", vous avez gagné !"+textcolor.DEFAULT+"\n")
         incrementScore(joueur2, "devinette")
     else:
-        print("\nMatch nul")
+        print("\n"+textcolor.YELLOW + "Match nul"+textcolor.DEFAULT+"\n")
 
     confirmRetour()

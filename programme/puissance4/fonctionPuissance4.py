@@ -64,7 +64,7 @@ def pionAligne(plateau: list[list[str]], pion: str) -> bool:
                     and plateau[i + 3][j] == pion:
                 return True
 
-    # Vérification diagonale
+    # Vérifications diagonales
     for i in range(3):
         for j in range(4):
             if plateau[i][j] == pion and plateau[i + 1][j + 1] == pion and plateau[i + 2][j + 2] == pion and \
@@ -110,8 +110,8 @@ def tourPuissance4(joueur1: Joueur, joueur2: Joueur):
     aligne: bool = False
 
     mrPropre()
-    print(joueur1.pseudo, "joueur avexc les", pionJ)
-    print(joueur2.pseudo, "joueur avexc les", pionR)
+    print(joueur1.pseudo, "joueur avec les", pionJ)
+    print(joueur2.pseudo, "joueur avec les", pionR)
 
     afficherPlateau(plateau)
 
@@ -122,8 +122,8 @@ def tourPuissance4(joueur1: Joueur, joueur2: Joueur):
         afficherPlateau(plateau)
         aligne = pionAligne(plateau, pionJ)
         if aligne:
-            print(textcolor.CYAN + "Le joueur " +
-                  joueur1.pseudo + " a gagné !" + textcolor.DEFAULT)
+            print(textcolor.GREEN + "Le joueur " +
+                  joueur1.pseudo + " a gagné !" + textcolor.DEFAULT + "\n")
             incrementScore(joueur1, "puissance 4")
         if plateauPlein(plateau) or aligne:
             break
@@ -134,11 +134,11 @@ def tourPuissance4(joueur1: Joueur, joueur2: Joueur):
         afficherPlateau(plateau)
         aligne = pionAligne(plateau, pionR)
         if aligne:
-            print(textcolor.CYAN + "Le joueur " +
-                  joueur2.pseudo + " a gagné !" + textcolor.DEFAULT)
+            print(textcolor.GREEN + "Le joueur " +
+                  joueur2.pseudo + " a gagné !" + textcolor.DEFAULT + "\n")
             incrementScore(joueur2, "puissance 4")
 
     if plateauPlein(plateau):
-        print(textcolor.CYAN + "Match nul !" + textcolor.DEFAULT)
+        print(textcolor.CYAN + "Match nul !" + textcolor.DEFAULT + "\n")
 
     confirmRetour()

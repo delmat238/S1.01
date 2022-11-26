@@ -43,34 +43,34 @@ class bgcolor:
     GREY = '\033[47m'
 
 
-def colorfull():
-    """Affiche toutes les couleurs"""
+# def colorfull():
+#     """Affiche toutes les couleurs"""
 
-    print(textform.WARNING+"Warning"+textform.DEFAULT)
-    print(textform.ERROR+"Error"+textform.DEFAULT)
+#     print(textform.WARNING+"Warning"+textform.DEFAULT)
+#     print(textform.ERROR+"Error"+textform.DEFAULT)
 
-    print(textform.BOLD+"Bold"+textform.DEFAULT)
-    print(textform.UNDERLINE+"Underline"+textform.DEFAULT)
+#     print(textform.BOLD+"Bold"+textform.DEFAULT)
+#     print(textform.UNDERLINE+"Underline"+textform.DEFAULT)
 
-    print(textcolor.RED+"Red"+textcolor.DEFAULT)
-    print(textcolor.YELLOW+"Orange"+textcolor.DEFAULT)
-    print(textcolor.GREEN+"Green"+textcolor.DEFAULT)
-    print(textcolor.CYAN+"Cyan"+textcolor.DEFAULT)
-    print(textcolor.BLUE+"Blue"+textcolor.DEFAULT)
-    print(textcolor.PURPLE+"Purple"+textcolor.DEFAULT)
-    print(textcolor.PINK+"Pink"+textcolor.DEFAULT)
-    print(textcolor.GREY+"Grey"+textcolor.DEFAULT)
-    print(textcolor.BLACK+"Black"+textcolor.DEFAULT)
-    print(textcolor.DEFAULT+"Defaut"+textcolor.DEFAULT)
+#     print(textcolor.RED+"Red"+textcolor.DEFAULT)
+#     print(textcolor.YELLOW+"Orange"+textcolor.DEFAULT)
+#     print(textcolor.GREEN+"Green"+textcolor.DEFAULT)
+#     print(textcolor.CYAN+"Cyan"+textcolor.DEFAULT)
+#     print(textcolor.BLUE+"Blue"+textcolor.DEFAULT)
+#     print(textcolor.PURPLE+"Purple"+textcolor.DEFAULT)
+#     print(textcolor.PINK+"Pink"+textcolor.DEFAULT)
+#     print(textcolor.GREY+"Grey"+textcolor.DEFAULT)
+#     print(textcolor.BLACK+"Black"+textcolor.DEFAULT)
+#     print(textcolor.DEFAULT+"Defaut"+textcolor.DEFAULT)
 
-    print(bgcolor.RED+"RedBG"+bgcolor.BLACK)
-    print(bgcolor.YELLOW+"OrangeBG"+bgcolor.BLACK)
-    print(bgcolor.GREEN+"GreenBG"+bgcolor.BLACK)
-    print(bgcolor.CYAN+"CyanBG"+bgcolor.BLACK)
-    print(bgcolor.BLUE+"BlueBG"+bgcolor.BLACK)
-    print(bgcolor.PURPLE+"PurpleBG"+bgcolor.BLACK)
-    print(bgcolor.GREY+"GreyBG"+bgcolor.BLACK)
-    print(bgcolor.BLACK+"BlackBG"+bgcolor.BLACK)
+#     print(bgcolor.RED+"RedBG"+bgcolor.BLACK)
+#     print(bgcolor.YELLOW+"OrangeBG"+bgcolor.BLACK)
+#     print(bgcolor.GREEN+"GreenBG"+bgcolor.BLACK)
+#     print(bgcolor.CYAN+"CyanBG"+bgcolor.BLACK)
+#     print(bgcolor.BLUE+"BlueBG"+bgcolor.BLACK)
+#     print(bgcolor.PURPLE+"PurpleBG"+bgcolor.BLACK)
+#     print(bgcolor.GREY+"GreyBG"+bgcolor.BLACK)
+#     print(bgcolor.BLACK+"BlackBG"+bgcolor.BLACK)
 
 
 class maintexts:

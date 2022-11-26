@@ -4,6 +4,7 @@ from programme.joueur.joueur import Joueur
 from programme.utile.chiffrement import *
 from programme.utile.mrPropre import mrPropre
 from programme.utile.colorfull import *
+from programme.utile.ConfirmRetour import confirmRetour
 
 
 def setScore(score: int, joueur: Joueur, nomjeu: str):
@@ -78,16 +79,18 @@ def classementJeu(nomjeu: str):
     classement: list[tuple] = []
     data = json.loads(decrytion("programme/joueur/scores.dat"))
 
-    for joueur in data['players']:                          #Récupération de la liste des joueurs
+    for joueur in data['players']:  # Récupération de la liste des joueurs
         listejoueurs.append(joueur)
 
-    for i in range(0, len(data['players'])):                #Récupération des scores des joueurs
+    # Récupération des scores des joueurs
+    for i in range(0, len(data['players'])):
         scoresjoueurs.append(data['players'][listejoueurs[i]][nomjeu])
 
-    classement = sorted(zip(scoresjoueurs, listejoueurs),reverse=True)   #Association des scores et des joueurs
+    # Association des scores et des joueurs
+    classement = sorted(zip(scoresjoueurs, listejoueurs), reverse=True)
     print(textform.BOLD+textcolor.PINK+"Classement "+nomjeu+textform.DEFAULT)
 
-    for i in range(0, len(classement)):                     #Affichage des scores pour le jeu donné
+    for i in range(0, len(classement)):  # Affichage des scores pour le jeu donné
         print(textform.BOLD+str(i+1)+" : "+textform.DEFAULT +
               classement[i][1]+" - "+str(classement[i][0]))
     print()
@@ -100,6 +103,7 @@ def printClassement():
     mrPropre()
     for jeu in {'allumette', 'devinette', 'morpion', 'puissance 4'}:
         classementJeu(jeu)
+    confirmRetour()
 
 
 def menuScore(joueur1: Joueur, joueur2: Joueur):
@@ -118,13 +122,13 @@ def menuScore(joueur1: Joueur, joueur2: Joueur):
         print("""
     1. Score des Joueurs
     2. Classements
-    3. Quitter
+    3. Retour
         """)
 
         choix = input("Faites votre choix : ")
 
         match choix:
-            case '1': mrPropre(), joueur1.afficherScore(), print(), joueur2.afficherScore()
+            case '1': mrPropre(), joueur1.afficherScore(), print(), joueur2.afficherScore(), print(), confirmRetour()
             case '2': printClassement()
             case '3': mrPropre()
             case _: mrPropre()

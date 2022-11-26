@@ -2,6 +2,8 @@ from programme.joueur.joueur import Joueur
 from programme.morpion.fonctionMorpion import pionAligne, affichePlateau, saisieX, saisieY, plateauPlein
 from programme.utile.ConfirmRetour import confirmRetour
 from programme.utile.score import incrementScore
+from programme.utile.mrPropre import mrPropre
+from programme.utile.colorfull import *
 
 
 def tourMorpion(joueur1: Joueur, joueur2: Joueur):
@@ -11,6 +13,9 @@ def tourMorpion(joueur1: Joueur, joueur2: Joueur):
         joueur1 (Joueur): Joueur 1
         joueur2 (Joueur): Joueur 2
     """
+
+    mrPropre()
+
     plateau: list[list[str]] = [
         ["-", "-", "-"], ["-", "-", "-"], ["-", "-", "-"]]
     x: int
@@ -43,7 +48,7 @@ def tourMorpion(joueur1: Joueur, joueur2: Joueur):
             if plateau[x][y] == "-":
                 break
             else:
-                print("Case déjà prise")
+                print(textform.WARNING+"Case déjà prise"+textform.DEFAULT)
         plateau[x][y] = "O"
         Bool, pion = pionAligne(plateau)
         aligne = eval(Bool)
@@ -53,12 +58,14 @@ def tourMorpion(joueur1: Joueur, joueur2: Joueur):
             break
 
     if pion == "X":
-        print(joueur1.pseudo + " a gagné !")
+        print(textcolor.GREEN+"\n"+joueur1.pseudo +
+              " a gagné !"+textcolor.DEFAULT+"\n")
         incrementScore(joueur1, "morpion")
     elif pion == "O":
-        print(joueur2.pseudo + " a gagné !")
+        print(textcolor.GREEN+"\n"+joueur2.pseudo +
+              " a gagné !"+textcolor.DEFAULT+"\n")
         incrementScore(joueur2, "morpion")
     elif plein:
-        print("Match nul !")
+        print("\n"+textcolor.YELLOW + "Match nul"+textcolor.DEFAULT+"\n")
 
     confirmRetour()
