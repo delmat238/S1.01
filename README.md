@@ -6,7 +6,7 @@ Programme de mini-jeux en terminal, réalisé en binômes en première année de
 Créé par [delmat238](https://github.com/delmat238) et [WatzTheEngineer](https://github.com/WatzTheEngineer)
 
 ## Requiert
-- Python 3.10+
+- Python 3.10+ *(Sauf windows exécutable)*
 
 ## Remarques
 
