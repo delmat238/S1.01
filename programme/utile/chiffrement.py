@@ -23,16 +23,15 @@ def decrytion(filepath: str) -> str:
     key: hash = sha256(('key').encode('utf-8')).digest()
 
     with open(filepath, "rb") as rfile:
+        i = 0
         while rfile.peek():
-            i = 0
-            while rfile.peek():
-                unicode = ord(rfile.read(1))
-                b = bytes([unicode ^ key[(i % len(key))]])
-                try:
-                    jsondata = jsondata + b.decode('utf-8')
-                except UnicodeDecodeError:
-                    error = True
-                i = i+1
+            unicode = ord(rfile.read(1))
+            b = bytes([unicode ^ key[(i % len(key))]])
+            try:
+                jsondata = jsondata + b.decode('utf-8')
+            except UnicodeDecodeError:
+                error = True
+            i = i+1
     if error:
         print(textform.ERROR+"Le fichier de sauvegarde est endommagé, une réparation va être effectuée"+textform.DEFAULT)
         repair()
