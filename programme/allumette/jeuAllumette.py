@@ -25,8 +25,8 @@ def jeuAllumette(joueur1: Joueur, joueur2: Joueur):
     nrest = nallum
     print(affichageAllumette(nallum, nrest))
 
-    while nrest > 0:
-        while True:
+    while nrest > 0: #On boucle tant qu'il reste des allumettes
+        while True: #On boucle tant que l'on envoi un nombre valide
             nret = saisieInt(
                 cp.pseudo + ", retirez entre 1 et 3 allumettes : ", "Erreur de saisie")
             if nret > 0 and nret < 4:
@@ -37,13 +37,13 @@ def jeuAllumette(joueur1: Joueur, joueur2: Joueur):
         nrest = nrest - nret
         mrPropre()
         print(affichageAllumette(nallum, nrest))
-        if cp == joueur1:
+        if cp == joueur1:   #changement du joueur
             cp = joueur2
         else:
             cp = joueur1
 
     print(textcolor.GREEN+cp.pseudo + " gagne la partie !"+textcolor.DEFAULT)
-    incrementScore(cp, "allumette")
+    incrementScore(cp, "allumette") #Ajout d'un point
 
 
 def affichageAllumette(nallum: int, nrest: int) -> str:
@@ -59,7 +59,7 @@ def affichageAllumette(nallum: int, nrest: int) -> str:
 
     show: str = ""
 
-    for i in range(0, nallum):
+    for i in range(0, nallum):  #construction de la chaine
         if i < nrest:
             show = show + " |"
         else:

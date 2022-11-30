@@ -20,20 +20,20 @@ def decrytion(filepath: str) -> str:
     b: bytes
 
     # 'key' représente la clé de chiffrement utilisée
-    key: hash = sha256(('key').encode('utf-8')).digest()
+    key: hash = sha256(('key').encode('utf-8')).digest() #On génère le hash de la clé
 
     with open(filepath, "rb") as rfile:
         i = 0
         while rfile.peek():
-            unicode = ord(rfile.read(1))
-            b = bytes([unicode ^ key[(i % len(key))]])
+            unicode = ord(rfile.read(1)) #On lit caractère par caractère
+            b = bytes([unicode ^ key[(i % len(key))]]) #On XOR le caractère avec le rang de la clé égal à i modulo sa longeur
             try:
-                jsondata = jsondata + b.decode('utf-8')
+                jsondata = jsondata + b.decode('utf-8') #On vérifie que la chaine obtenue est lisible
             except UnicodeDecodeError:
                 error = True
             i = i+1
     if error:
-        print(textform.ERROR+"Le fichier de sauvegarde est endommagé, une réparation va être effectuée"+textform.DEFAULT)
+        print(textform.ERROR+"Le fichier de sauvegarde est endommagé, une réparation va être effectuée"+textform.DEFAULT) #Réparation si dommages
         repair()
         jsondata = decrytion(filepath)
     return jsondata
@@ -57,9 +57,9 @@ def encryption(filepath: str):
         with open("programme/joueur/scores.dat", 'wb') as wfile:
             i = 0
             while rfile.peek():
-                unicode = ord(rfile.read(1))
-                b = bytes([unicode ^ key[i % len(key)]])
-                wfile.write(b)
+                unicode = ord(rfile.read(1)) #On lit caractère par caractère
+                b = bytes([unicode ^ key[i % len(key)]]) #On XOR le caractère avec le rang de la clé égal à i modulo sa longeur
+                wfile.write(b) #On écrit le contenu dans le fichier
                 i = i+1
     os.remove(filepath)
 
@@ -67,8 +67,8 @@ def encryption(filepath: str):
 def repair():
     """Permet la création ou la réparation d'une sauvegarde
     """
-    data = json.loads("{\"players\":{}}")
-    with open("programme/joueur/scores.json", "w") as w_score_file:
+    data = json.loads("{\"players\":{}}")   #On génère une chaine json attendue vierge
+    with open("programme/joueur/scores.json", "w") as w_score_file: #On l'inscrit dans le fichier
         json.dump(data, w_score_file, indent=4)
-    encryption("programme/joueur/scores.json")
+    encryption("programme/joueur/scores.json") #On chiffre le fichier
     print("\n"+textcolor.GREEN+"Nouvelle sauvegarde crée"+textcolor.DEFAULT+"\n")

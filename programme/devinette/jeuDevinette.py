@@ -20,7 +20,7 @@ def jeuDevinette(joueur1: Joueur, joueur2: Joueur):
 
     mrPropre()
 
-    while borne <= 1:
+    while borne <= 1: #Saisie et vérification de la borne
         borne = saisieInt(joueur1.pseudo + " entrez la borne superieure à 1 : ",
                           "Erreur de saisie\n Le nombre doit etre superieur à 1.")
 
@@ -36,10 +36,10 @@ def jeuDevinette(joueur1: Joueur, joueur2: Joueur):
 
     if comptJ1 < comptJ2:
         print("\n" +textcolor.GREEN+ joueur1.pseudo + ", vous avez gagné !"+textcolor.DEFAULT+"\n")
-        incrementScore(joueur1, "devinette")
+        incrementScore(joueur1, "devinette") #Ajout d'un point
     elif comptJ1 > comptJ2:
         print("\n" +textcolor.GREEN+ joueur2.pseudo + ", vous avez gagné !"+textcolor.DEFAULT+"\n")
-        incrementScore(joueur2, "devinette")
+        incrementScore(joueur2, "devinette") #Ajout d'un point
     else:
         print("\n"+textcolor.YELLOW + "Match nul"+textcolor.DEFAULT+"\n")
 

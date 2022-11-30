@@ -46,23 +46,34 @@ def pionAligne(plateau: list[list[str]]) -> tuple[str, str]:
     Returns:
         tuple[str, str]: 'Vrai' si il y a une ligne de 3, symbole du gagnant
     """
-    if plateau[0][0] == plateau[0][1] and plateau[0][0] == plateau[0][2] and plateau[0][0] != "-":
-        return "True", plateau[0][0]
+    boolStr: str = "False"
+    pion: str = ""
+
+    if plateau[0][0] == plateau[0][1] and plateau[0][0] == plateau[0][2] and plateau[0][0] != "-": #Chaque ligne est une vérification
+        boolStr = "True"
+        pion = plateau[0][0]
     if plateau[1][0] == plateau[1][1] and plateau[1][0] == plateau[1][2] and plateau[1][0] != "-":
-        return "True", plateau[1][0]
+        boolstr*= "True"
+        pion = plateau[1][0]
     if plateau[2][0] == plateau[2][1] and plateau[2][0] == plateau[2][2] and plateau[2][0] != "-":
-        return "True", plateau[2][0]
+        boolStr = "True"
+        pion = plateau[2][0]
     if plateau[0][0] == plateau[1][0] and plateau[0][0] == plateau[2][0] and plateau[0][0] != "-":
-        return "True", plateau[0][0]
+        boolStr = "True"
+        pion = plateau[0][0]
     if plateau[0][1] == plateau[1][1] and plateau[0][1] == plateau[2][1] and plateau[0][1] != "-":
-        return "True", plateau[0][1]
+        boolStr = "True"
+        pion = plateau[0][1]
     if plateau[0][2] == plateau[1][2] and plateau[0][2] == plateau[2][2] and plateau[0][2] != "-":
-        return "True", plateau[0][2]
+        boolStr = "True"
+        pion = plateau[0][2]
     if plateau[0][0] == plateau[1][1] and plateau[0][0] == plateau[2][2] and plateau[0][0] != "-":
-        return "True", plateau[0][0]
+        boolStr = "True"
+        pion = plateau[0][0]
     if plateau[0][2] == plateau[1][1] and plateau[0][2] == plateau[2][0] and plateau[0][2] != "-":
-        return "True", plateau[0][2]
-    return "False", ""
+        boolStr = "True" 
+        pion = plateau[0][2]
+    return boolStr, pion
 
 
 def plateauPlein(plateau: list[list[str]]) -> bool:

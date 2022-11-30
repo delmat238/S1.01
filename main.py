@@ -17,7 +17,7 @@ if __name__ == '__main__':
     joueur1 = Joueur(pseudo)
     while pseudo == joueur1.pseudo:
         pseudo = input("Entrez le pseudo du joueur 2 : ")
-        if pseudo == joueur1.pseudo:
+        if pseudo == joueur1.pseudo:    #Le premier pseudo doit être différent du second
             print(textform.ERROR +
                   "Ce pseudo est déjà utilisé par le joueur 1"+textform.DEFAULT)
     joueur2 = Joueur(pseudo)

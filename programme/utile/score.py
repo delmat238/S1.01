@@ -7,30 +7,6 @@ from programme.utile.colorfull import *
 from programme.utile.ConfirmRetour import confirmRetour
 
 
-def setScore(score: int, joueur: Joueur, nomjeu: str):
-    """Permet de définir le nouveau score d'un joueur
-
-    Args:
-        score (int): nouveau score du joueur
-        joueur (Joueur): Joueur concerné
-    """
-
-    data = json.loads(decrytion("programme/joueur/scores.dat"))
-    with open("programme/joueur/scores.json", "w") as w_score_file:
-        if joueur.pseudo in data['players']:
-            data['players'][joueur.pseudo][nomjeu] = score
-        else:
-            data['players'][joueur.pseudo] = {
-                "allumette": 0,
-                "devinette": 0,
-                "morpion": 0,
-                "puissance 4": 0
-            }
-            data['players'][joueur.pseudo][nomjeu] = score
-        json.dump(data, w_score_file, indent=4)
-    joueur.reloadScore()
-
-
 def incrementScore(joueur: Joueur, nomjeu: str):
     """Permet d'incrémenter de 1 le score d'un joueur pour un jeu
 
@@ -38,11 +14,12 @@ def incrementScore(joueur: Joueur, nomjeu: str):
         joueur (Joueur): joueur dont le score est augmenté
         nomjeu (str): nom du jeu pour lequel le score est augmenté
     """
-    data = json.loads(decrytion("programme/joueur/scores.dat"))
+    data = json.loads(decrytion("programme/joueur/scores.dat")
+                      )  # On charge les scores actuels dans le json
     with open("programme/joueur/scores.json", "w") as w_score_file:
         if joueur.pseudo in data['players']:
             data['players'][joueur.pseudo][nomjeu] = int(
-                data['players'][joueur.pseudo][nomjeu])+1
+                data['players'][joueur.pseudo][nomjeu])+1  # On incrémente les scores dans la sauvegarde
         else:
             data['players'][joueur.pseudo] = {
                 "allumette": 0,
@@ -52,25 +29,7 @@ def incrementScore(joueur: Joueur, nomjeu: str):
             }
             data['players'][joueur.pseudo][nomjeu] = 1
         json.dump(data, w_score_file, indent=4)
-    joueur.reloadScore()
-
-
-def resetScore(joueur: Joueur):
-    """Permet de remettre à 0 tous les cores d'un joueur
-
-    Args:
-        joueur (Joueur): Joueur dont les scores sont remis à 0
-    """
-    data = json.loads(decrytion("programme/joueur/scores.dat"))
-    with open("programme/joueur/scores.json", "w") as w_score_file:
-        data['players'][joueur.pseudo] = {
-            "allumette": 0,
-            "devinette": 0,
-            "morpion": 0,
-            "puissance 4": 0
-        }
-        json.dump(data, w_score_file, indent=4)
-    joueur.reloadScore()
+    joueur.reloadScore()  # On demande une synchronisation
 
 
 def classementJeu(nomjeu: str):
@@ -101,7 +60,7 @@ def printClassement():
     """
     jeu: str
     mrPropre()
-    for jeu in {'allumette', 'devinette', 'morpion', 'puissance 4'}:
+    for jeu in {'allumette', 'devinette', 'morpion', 'puissance 4'}: #On affiche pour chaque jeu présent dan le set
         classementJeu(jeu)
     confirmRetour()
 

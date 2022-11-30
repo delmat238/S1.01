@@ -16,7 +16,7 @@ def tourMorpion(joueur1: Joueur, joueur2: Joueur):
 
     mrPropre()
 
-    plateau: list[list[str]] = [
+    plateau: list[list[str]] = [ #Définition du plateau
         ["-", "-", "-"], ["-", "-", "-"], ["-", "-", "-"]]
     x: int
     y: int
@@ -25,10 +25,10 @@ def tourMorpion(joueur1: Joueur, joueur2: Joueur):
     plein: bool
     Bool: str
 
-    affichePlateau(plateau)
+    affichePlateau(plateau) #Premier affichage
 
     while True:
-        while True:
+        while True: #On joue tant qu'il n'y a pas de victoire ou d'égalité
             x = saisieX(joueur1)
             y = saisieY(joueur1)
             if plateau[x][y] == "-":

@@ -12,7 +12,7 @@ def afficherPlateau(plateau: list[list[str]]):
     Args:
         plateau (list[list[str]]): Plateau de Jeu
     """
-    print(" 0 1 2 3 4 5 6")
+    print(" 1 2 3 4 5 6 7")
     for ligne in plateau:
         print("|", end="")
         for case in ligne:
@@ -29,7 +29,7 @@ def placerPion(plateau: list[list[str]], pion: str):
         pion (str): Chaine affichée en tant que pion
     """
     i: int = 5
-    colonne: int = saisieInt("Choisissez une colonne : ")
+    colonne: int = (saisieInt("Choisissez une colonne : ")) - 1
 
     while plateau[i][colonne] != " ":  # Tant que la case est occupée
         i -= 1
@@ -104,18 +104,18 @@ def tourPuissance4(joueur1: Joueur, joueur2: Joueur):
         joueur2 (Joueur): Joueur 2
     """
 
-    plateau: list[list[str]] = [[" " for _ in range(7)] for _ in range(6)]
+    plateau: list[list[str]] = [[" " for _ in range(7)] for _ in range(6)] #Taille de 7*6 
     pionJ: str = textcolor.YELLOW + 'O' + textcolor.DEFAULT
     pionR: str = textcolor.RED + 'O' + textcolor.DEFAULT
     aligne: bool = False
 
     mrPropre()
-    print(joueur1.pseudo, "joueur avec les", pionJ)
+    print(joueur1.pseudo, "joueur avec les", pionJ) #On indique à chaue joueur ses pions
     print(joueur2.pseudo, "joueur avec les", pionR)
 
     afficherPlateau(plateau)
 
-    while not aligne and not plateauPlein(plateau):
+    while not aligne and not plateauPlein(plateau): #On joue tant qu'il n'y a ni égalité ni victoire
         print(joueur1.pseudo + ", joue !")
         placerPion(plateau, pionJ)
         mrPropre()

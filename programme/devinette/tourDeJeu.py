@@ -22,7 +22,7 @@ def tourDeJeu(joueurChoisit: Joueur, joueurCherche: Joueur, borne: int) -> int:
     choix: int = 0
     proposition: int
 
-    while nbATrouver <= 0 or nbATrouver >= borne:
+    while nbATrouver <= 0 or nbATrouver >= borne: #Entrée du nombre caché
         try:
             nbATrouver = int(getpass.getpass("Entrez le nombre que " +
                              joueurCherche.pseudo + " doit trouver entre 0 et " + str(borne) + " : "))
@@ -31,11 +31,11 @@ def tourDeJeu(joueurChoisit: Joueur, joueurCherche: Joueur, borne: int) -> int:
             print("Erreur de saisie")
 
     while choix != 3:
-        proposition = saisieInt(
+        proposition = saisieInt( #proposition par le joueur
             "\n"+joueurCherche.pseudo + " devine le nombre : ", "Erreur de saisie")
         comptJoueur += 1
 
-        print("\n"+joueurChoisit.pseudo, "à vous de jouer")
+        print("\n"+joueurChoisit.pseudo, "à vous de jouer") #Réponse
         print(proposition, "est :")
         print("1. Plus grand")
         print("2. Plus petit")
