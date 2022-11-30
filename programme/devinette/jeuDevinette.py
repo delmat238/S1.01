@@ -20,9 +20,9 @@ def jeuDevinette(joueur1: Joueur, joueur2: Joueur):
 
     mrPropre()
 
-    while borne <= 0:
-        borne = saisieInt(joueur1.pseudo + " entrez la borne superieure à 0 : ",
-                          "Erreur de saisie\n Le nombre doit etre superieur à 0.")
+    while borne <= 1:
+        borne = saisieInt(joueur1.pseudo + " entrez la borne superieure à 1 : ",
+                          "Erreur de saisie\n Le nombre doit etre superieur à 1.")
 
     mrPropre()
     print(textform.BOLD + "Bienvenue dans le jeu de la devinette\n" + textform.DEFAULT)
