@@ -21,6 +21,20 @@ def afficherPlateau(plateau: list[list[str]]):
     print()
 
 
+def saisirColonne() -> int:
+    """
+Saisie d'une colonne
+
+    Returns:
+        int: Colonne saisie
+    """
+    colonne: int = saisieInt("Choisissez une colonne : ")
+    while colonne < 1 or colonne > 7:
+        print("Colonne invalide")
+        colonne = saisieInt("Choisissez une colonne : ")
+    return colonne - 1
+
+
 def placerPion(plateau: list[list[str]], pion: str):
     """Place un pion dans la colonne donnée
 
@@ -29,13 +43,17 @@ def placerPion(plateau: list[list[str]], pion: str):
         pion (str): Chaine affichée en tant que pion
     """
     i: int = 5
-    colonne: int = (saisieInt("Choisissez une colonne : ")) - 1
+    colonne: int = saisirColonne()
 
     while plateau[i][colonne] != " ":  # Tant que la case est occupée
         i -= 1
         if i == -1:
             print("Colonne pleine")
-            colonne = saisieInt("Choisissez une colonne : ")
+            colonne = saisirColonne()
+            i = 5
+        if colonne < 0 or colonne > 6:
+            print("Colonne invalide")
+            colonne = saisirColonne()
             i = 5
 
     plateau[i][colonne] = pion
